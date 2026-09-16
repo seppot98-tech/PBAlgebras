@@ -161,20 +161,47 @@ interesting question the correction opens up.
 Every $A\in\PB^{1/4}_{\gauge_1}$ is semisimple, i.e.\ $\rad(A)=0$.
 \end{conjecture}
 
-\begin{remark}
-Note that this does \emph{not} follow from Theorem~\ref{thm:normaloid}, which is
-vacuous at $C=\tfrac14$, and that it is not a statement about nilpotent
-\emph{elements}: $M_2(\RR)\in\PB^{1/4}$ contains the nilpotent $E_{12}$ and is
-nonetheless simple.  The evidence is that the elementary radical-carrying
-examples are all excluded at $\tfrac14$: $\RR[\varepsilon]/(\varepsilon^2)$ has
-an unfunded defect (Example~\ref{ex:excluded}), and $T_2(\RR)$ has
-$\kap=\kap^*>\tfrac14$ (Proposition~\ref{prop:T2-constant}).  If the conjecture
-holds, then at the critical constant the norm gauge achieves without an
-involution what the $C^*$-identity achieves with one --- the exclusion of the
-radical --- while retaining the functoriality that $\gauge_\infty$ destroys, and
-the ``discrimination versus closure'' trade-off of
-Remark~\ref{rem:gauge-tradeoff} dissolves at exactly one value of $C$.  This is
-Problem~\ref{prob:semisimple}.
+\begin{remark}[Evidence]\label{rem:semisimple-evidence}
+Note first that Conjecture~\ref{conj:semisimple} does \emph{not} follow from
+Theorem~\ref{thm:normaloid}, which is vacuous at $C=\tfrac14$, and that it is
+not a statement about nilpotent \emph{elements}: $M_2(\RR)\in\PB^{1/4}$ contains
+the nilpotent $E_{12}$ and is nonetheless simple.
+
+The evidence is that every elementary radical-carrying algebra we can compute is
+excluded at $\tfrac14$.  For $\RR[\varepsilon]/(\varepsilon^2)$ the defect is
+unfunded outright (Example~\ref{ex:excluded}).  For the others it is a
+quantitative matter, and to exclude an algebra it suffices to exhibit one
+element with ratio above $\tfrac14$ --- no supremum is needed.  Such witnesses
+are found by \texttt{verify/experiments/radical\_scan.py}:
+\begin{center}
+\begin{tabular}{llc}
+\toprule
+Algebra & witness & $\bigl(\norm{a}^2-\norm{a^2}\bigr)/\gauge_1(a)$ \\
+\midrule
+$T_2(\RR)$   & $x_{0.45}$ & $0.30894$ \\
+$T_3(\RR)$   & $x_{0.45}$ in the $\{1,3\}$ corner & $0.30894$ \\
+$P_{1,2}(\RR)$ & $x_{0.45}$ in the $\{1,2\}$ corner & $0.30190$ \\
+$P_{2,1}(\RR)$ & $x_{0.45}$ in the $\{1,3\}$ corner & $0.30047$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Here $x_c=\begin{psmallmatrix}c&1-c^2\\0&-c\end{psmallmatrix}$ is the traceless
+family of Proposition~\ref{prop:T2-constant} and $P_{1,2}(\RR)$, $P_{2,1}(\RR)$
+are the block upper-triangular (parabolic) subalgebras of $M_3(\RR)$.  The
+parabolic cases are the informative ones: unlike $T_n(\RR)$ they contain a full
+$M_2(\RR)$ block on the diagonal, so they have many more test elements with
+which to fund a radical defect --- and they still cannot fund it at $\tfrac14$.
+All four entries are \statusnum; each is stable to $10^{-4}$ under a tripling of
+the optimisation effort, and the first is corroborated by the exact computation
+of Proposition~\ref{prop:T2-constant}.
+
+If the conjecture holds, then at the critical constant the norm gauge achieves
+without an involution what the $C^*$-identity achieves with one --- the
+exclusion of the radical --- while retaining the functoriality that
+$\gauge_\infty$ and every $\gauge_q$, $q\ge2$, destroy
+(Warning~\ref{warn:vanishing}), and the ``discrimination versus closure''
+trade-off of Remark~\ref{rem:gauge-tradeoff} dissolves at exactly one value of
+$C$.  This is Problem~\ref{prob:semisimple}.
 \end{remark}
 
 \begin{remark}[What the transition means]

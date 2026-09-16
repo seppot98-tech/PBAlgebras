@@ -82,8 +82,13 @@ def make_gauge(name: str, alg: Algebra, fast: bool = True, accurate: bool = Fals
         if fast and alg.name in STAMPFLI_FAST_PATH:
             return lambda a, rng=None: 4.0 * dist_to_scalars(a) ** 2
         if accurate:
+            # The polish stage dominates the cost and grows with dim(A): each
+            # restart is a derivative-free run over dim(A) parameters.  Near the
+            # optimum a couple of restarts suffice, so spend them where they are
+            # cheap.
+            polish = 6 if alg.dim <= 4 else (3 if alg.dim <= 6 else 2)
             return lambda a, rng=None: D1(alg, a, restarts=10, iters=80,
-                                          polish=6, rng=rng)
+                                          polish=polish, rng=rng)
         return lambda a, rng=None: D1(alg, a, restarts=6, iters=60, polish=0,
                                       rng=rng)
     if name == "Dinf":
@@ -195,6 +200,12 @@ def critical_constants(alg: Algebra, gauge: str = "D1", tries: int = 30,
 
     kap, kw, c1 = _sup_ratio(alg, pb1_defect, g, rng, tries, maxiter)
     lam, lw, c2 = _sup_ratio(alg, pb2_defect, g, rng, tries, maxiter)
+
+    # Each refinement step costs an accurate gauge evaluation, which is itself a
+    # maximisation over dim(A) parameters; without this the refinement of a
+    # six-dimensional algebra takes longer than the rest of the run together.
+    if alg.dim > 4 and alg.name not in STAMPFLI_FAST_PATH:
+        refine_iter = min(refine_iter, 60 if alg.dim <= 6 else 40)
 
     if np.isfinite(kap):
         kap, kw = _refine(alg, pb1_defect, kw, g_acc, rng, refine_iter)

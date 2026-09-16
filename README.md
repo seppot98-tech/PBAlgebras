@@ -70,11 +70,15 @@ enter all at once. **`¼` is a phase transition, not a normalisation artefact.**
 
   This matters structurally. The notes present `D₁` vs `D_∞` as a forced trade:
   `D₁` keeps the functorial base but cannot exclude non-central radical, `D_∞`
-  excludes it but breaks closure. At `C = ¼` the trade is not forced in the one
-  case we can compute — which raises the natural **conjecture that every
-  `PB^{¼}` algebra is semisimple**: at exactly one constant, the norm gauge
-  would exclude the radical, as the C\*-identity does with an involution, while
-  keeping the base functorial.
+  excludes it but breaks closure. At `C = ¼` the trade is not forced — which
+  raises the **conjecture that every `PB^{¼}` algebra is semisimple**: at
+  exactly one constant, the norm gauge would exclude the radical, as the
+  C\*-identity does with an involution, while keeping the base functorial.
+
+  Every radical-carrying algebra we can compute is excluded at `¼` —
+  `T₂(ℝ)`, `T₃(ℝ)` and both parabolic subalgebras of `M₃(ℝ)`, the last two
+  being the informative cases since they carry a full `M₂(ℝ)` block with which
+  to fund a radical defect, and still cannot (`make scan`).
 
 - **An open question answered — for large constants.** The notes asked whether a
   legal cone can reach a non-scalar diagonal in `M₂(ℝ)`, which would rule out

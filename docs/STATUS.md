@@ -41,6 +41,7 @@ of the working notes that did not survive.
 | `κ = λ = ¼` for `M₂(ℝ)`; `κ = 0`, `λ = ¼` for `ℍ` | §8 |
 | `κ(T₂(ℝ)) = κ*` exactly, i.e. the traceless slice is extremal | §8 |
 | `κ(M_n(ℝ)) = ¼` for `n ≤ 4` | §13 |
+| `T₃(ℝ)`, `P₁,₂(ℝ)`, `P₂,₁(ℝ)` are excluded at `C = ¼` (witnesses with ratio `> 0.30`) | §5 |
 
 ## Conjectural
 

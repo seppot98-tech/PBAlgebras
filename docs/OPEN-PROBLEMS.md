@@ -14,9 +14,25 @@ This is the question opened up by the refutation of the notes' claim that no
 
 Note it does **not** follow from the phase-transition bound `r(a) ≥ (1−4C)‖a‖`,
 which is vacuous at `C = ¼`, and it is not about nilpotent *elements* —
-`M₂(ℝ) ∈ PB^{¼}` contains `E₁₂` and is simple. The evidence is that the
-elementary radical-carrying examples are excluded at `¼`: `ℝ[ε]/(ε²)`
-(unfunded), `T₂(ℝ)` (`κ* > ¼`).
+`M₂(ℝ) ∈ PB^{¼}` contains `E₁₂` and is simple.
+
+**Evidence.** Every elementary radical-carrying algebra we can compute is
+excluded at `¼`. To exclude one it is enough to exhibit a single element with
+ratio above `¼` — no supremum needed — and
+`verify/experiments/radical_scan.py` finds them:
+
+| Algebra | witness | ratio |
+|---|---|---|
+| `ℝ[ε]/(ε²)` | `ε` | `∞` (unfunded) |
+| `T₂(ℝ)` | `x_0.45` | `0.30894` |
+| `T₃(ℝ)` | `x_0.45` in the `{1,3}` corner | `0.30894` |
+| `P₁,₂(ℝ)` | `x_0.45` in the `{1,2}` corner | `0.30190` |
+| `P₂,₁(ℝ)` | `x_0.45` in the `{1,3}` corner | `0.30047` |
+
+where `x_c = [[c, 1−c²],[0, −c]]`. The parabolic (block upper-triangular)
+algebras are the informative cases: unlike `T_n(ℝ)` they carry a full `M₂(ℝ)`
+block on the diagonal, so they have far more test elements available to fund a
+radical defect — and still cannot fund it at `¼`.
 
 If true, then at exactly one value of the constant the norm gauge excludes the
 radical — what the C\*-identity achieves by means of an involution — while
