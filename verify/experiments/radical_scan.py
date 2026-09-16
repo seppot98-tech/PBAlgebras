@@ -49,11 +49,13 @@ def gauge_coarse(alg: Algebra, a: np.ndarray, rng) -> float:
 def gauge_accurate(alg: Algebra, a: np.ndarray, rng) -> float:
     """High-effort gauge, used only on the handful of screened survivors.
 
-    The effort matters: at ``polish=4`` this reported a ratio of 0.3064 for
-    P(1,2) where the settled value is 0.2939.  An underestimated budget inflates
-    the ratio, which is the failure mode that produced a spurious
-    ``kappa(T_2(R)) = 0.317`` earlier in this project.  Values here are stable
-    to ~1e-4 under a further tripling of the effort.
+    The effort matters.  At ``polish=4`` this reported a ratio of 0.3064 at a
+    P(1,2) candidate whose settled ratio is 0.2939 -- an underestimated budget
+    inflates the ratio, the same failure mode that produced a spurious
+    ``kappa(T_2(R)) = 0.317`` earlier in this project.  (The scan's reported
+    best for P(1,2), 0.3019, is attained at a different element; both exceed
+    1/4, so the verdict was never in doubt, but the numbers were.)  Values at
+    this setting are stable to ~1e-4 under a further tripling of the effort.
     """
     return D1(alg, a, restarts=30, iters=120, polish=14, rng=rng)
 
