@@ -1,0 +1,186 @@
+\section{The base functor and the coreflection theorem}
+\label{sec:base}
+
+Theorem~\ref{thm:base} attaches a compact Hausdorff space $X_A$ to every object.
+This section shows that the assignment is functorial, that it is in fact a
+coreflection, and that it exhibits every object as a bundle over its own base.
+Everything here is specific to the gauge $\gauge_1$; see
+Warning~\ref{warn:vanishing}.
+
+\subsection{Morphisms preserve centres}
+
+\begin{lemma}\label{lem:centre-preserved}
+Let $f:A\to B$ be a PB-morphism for the gauge $\gauge_1$.  Then
+$f(\Zc(A))\subseteq\Zc(B)$.
+\end{lemma}
+
+\begin{proof}
+Let $a\in\Zc(A)$.  Then $\gauge_1(a)=0$ by Lemma~\ref{lem:gauge-basic}(e), so
+budget-contraction gives $\gauge_1(f(a))\le0$, hence $\ad_{f(a)}=0$, hence
+$f(a)\in\Zc(B)$ --- again by Lemma~\ref{lem:gauge-basic}(e), now read in the
+other direction.
+\end{proof}
+
+\begin{remark}
+This is the payoff of the exact identity $\{\gauge_1=0\}=\Zc(A)$.  Note that
+the conclusion is genuinely a restriction on arrows and not a triviality: an
+ordinary unital contractive homomorphism can certainly move a central element
+off the centre, as $\RR^2\hookrightarrow M_2(\RR)$ does.  The morphism law of
+Definition~\ref{def:pb-morphism}, introduced to repair the non-functoriality of
+the gauge, turns out to buy functoriality of the \emph{base} as well.
+\end{remark}
+
+\begin{theorem}[The base is a functor]\label{thm:base-functor}
+The assignments $A\mapsto X_A$ and $f\mapsto X_f$ define a functor
+\[
+  X:\PB^C_{\gauge_1}\longrightarrow\CompHaus\op .
+\]
+Explicitly, a PB-morphism $f:A\to B$ restricts by
+Lemma~\ref{lem:centre-preserved} to a unital homomorphism
+$\Zc(f):C(X_A,\RR)\to C(X_B,\RR)$, which by Theorem~\ref{thm:gelfand} is
+$X_f^*$ for a unique continuous map $X_f:X_B\to X_A$.  Functoriality is the
+functoriality of $\Spec$.
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:centre-preserved} gives the restriction, which is unital and
+multiplicative; Theorem~\ref{thm:base} identifies source and target with
+$C(X_A,\RR)$ and $C(X_B,\RR)$, and Theorem~\ref{thm:gelfand} converts unital
+homomorphisms between such algebras into continuous maps of the spectra, in a
+way that takes composites to composites and identities to identities.
+\end{proof}
+
+\subsection{The commutative part is coreflective}
+
+Write $\CommPB\subseteq\PB^C_{\gauge_1}$ for the full subcategory of
+commutative objects.  By Theorem~\ref{thm:gelfand} these are exactly the
+algebras $C(X,\RR)$, and the morphisms between them are exactly the unital
+homomorphisms --- the budget condition is vacuous, both gauges being zero.
+Hence
+\[
+  \CommPB\;\simeq\;\CompHaus\op .
+\]
+
+\begin{theorem}[Coreflection]\label{thm:coreflection}
+The centre functor $\Zc:\PB^C_{\gauge_1}\to\CommPB$ is right adjoint to the
+inclusion $\iota:\CommPB\hookrightarrow\PB^C_{\gauge_1}$.  That is, for every
+commutative object $C$ and every object $A$ there is a bijection, natural in
+both variables,
+\[
+  \Hom_{\PB}\bigl(\iota C,\,A\bigr)\;\cong\;\Hom_{\CommPB}\bigl(C,\,\Zc(A)\bigr).
+\]
+Equivalently, $\CommPB\simeq\CompHaus\op$ is a coreflective full subcategory of
+$\PB^C_{\gauge_1}$, with coreflector $A\mapsto\Zc(A)$.
+\end{theorem}
+
+\begin{proof}
+First, the inclusion $\Zc(A)\hookrightarrow A$ is a PB-morphism: it is
+isometric, and for $z\in\Zc(A)$ both gauges vanish, so the budget condition
+holds with equality.  It is therefore a saturated embedding
+(Definition~\ref{def:saturated}).
+
+Given a PB-morphism $g:\iota C\to A$ with $C$ commutative, every $c\in C$ has
+$\gauge_1^C(c)=0$, so $\gauge_1^A(g(c))=0$ and $g(c)\in\Zc(A)$ by
+Lemma~\ref{lem:gauge-basic}(e).  Hence $g$ factors uniquely through
+$\Zc(A)\hookrightarrow A$, and the factorisation is a morphism of $\CommPB$
+because it is a unital contractive homomorphism between commutative objects.
+Conversely, composing a morphism $C\to\Zc(A)$ with the saturated embedding
+$\Zc(A)\hookrightarrow A$ gives a PB-morphism $\iota C\to A$.  The two
+constructions are mutually inverse, and naturality in $A$ is
+Lemma~\ref{lem:centre-preserved} while naturality in $C$ is immediate.
+\end{proof}
+
+\begin{corollary}[Points of an object]\label{cor:points}
+For every compact Hausdorff $X$ and every object $A$,
+\[
+  \Hom_{\PB}\bigl(C(X,\RR),\,A\bigr)\;\cong\;C(X_A,X),
+\]
+the set of continuous maps $X_A\to X$.  In particular $\RR=C(\mathrm{pt},\RR)$
+is an initial object, and $\Hom_{\PB}(C(X,\RR),A)$ never sees anything of $A$
+beyond its base.
+\end{corollary}
+
+\begin{corollary}[Commutative coproducts]\label{cor:comm-coproducts}
+The coproduct of $C(X,\RR)$ and $C(Y,\RR)$ in $\PB^C_{\gauge_1}$ exists and
+equals $C(X\times Y,\RR)$.
+\end{corollary}
+
+\begin{proof}
+Let $f:C(X,\RR)\to A$ and $g:C(Y,\RR)\to A$ be PB-morphisms.  By the proof of
+Theorem~\ref{thm:coreflection} both land in $\Zc(A)$; in particular their
+images commute with one another, so the map $u\otimes v\mapsto f(u)g(v)$ is a
+well-defined unital homomorphism on the algebraic tensor product, contractive
+for the sup norm, and extends to $C(X\times Y,\RR)=C(X,\RR)\otimes C(Y,\RR)$.
+Its image lies in $\Zc(A)$, so its budget vanishes identically and it is a
+PB-morphism.  Uniqueness holds because the image of $C(X,\RR)\otimes C(Y,\RR)$
+is generated by the two images.
+\end{proof}
+
+\begin{warning}[The coproduct is not the free product]
+\label{warn:not-free-product}
+Corollary~\ref{cor:comm-coproducts} disposes of a suggestion in the earlier
+notes, where cocompleteness was to be established by showing that the free
+product $A*B$ of PB-algebras is again a PB-algebra.  The free product of
+$C(X,\RR)$ and $C(Y,\RR)$ is highly noncommutative, whereas their coproduct in
+$\PB$ is the commutative algebra $C(X\times Y,\RR)$.  So the free product is
+\emph{not} the coproduct of $\PB$, and the programme ``check that $A*B$ is a
+PB-algebra'' does not address cocompleteness.  What Theorem~\ref{thm:coreflection}
+shows is that, along the commutative part at least, the coproduct is the one
+forced by the geometry: the product of the bases.  The correct general question
+is Problem~\ref{prob:coproducts}.
+\end{warning}
+
+\subsection{The bundle picture}
+\label{sec:bundle}
+
+Theorem~\ref{thm:base} makes $A$ a unital Banach module over $C(X_A,\RR)$, the
+action being multiplication by central elements; submultiplicativity gives
+$\norm{f\cdot a}\le\norm{f}_\infty\norm{a}$.  This is the standard setting for a
+fibrewise decomposition.
+
+\begin{definition}[Fibres]\label{def:fibres}
+For $x\in X_A$ let $I_x\subseteq C(X_A,\RR)$ be the ideal of functions
+vanishing at $x$, let $J_x=\overline{I_x\cdot A}$ --- a closed two-sided ideal
+of $A$, since $I_x\cdot A$ is central-by-$A$ --- and set $A_x=A/J_x$, with
+quotient map $\pi_x$.  We call $A_x$ the \emph{fibre of $A$ over $x$}.
+\end{definition}
+
+\begin{proposition}\label{prop:usc-field}
+For every $a\in A$ the function $x\mapsto\norm{\pi_x(a)}$ is upper
+semicontinuous on $X_A$ and bounded by $\norm{a}$, and each $\pi_x$ is a
+PB-morphism onto its image.  Moreover $\Zc(A_x)$ is a quotient of
+$C(X_A,\RR)$ by an ideal containing $I_x$, so the base of each fibre is a
+single point provided $A_x\ne0$ and the quotient map is surjective on centres.
+\end{proposition}
+
+\begin{proof}
+Upper semicontinuity of $x\mapsto\norm{a+J_x}$ for a $C(X)$-module is standard:
+$\norm{\pi_x(a)}=\inf\{\norm{a-f\cdot a}:f\in C(X_A,\RR),\ f(x)=0,\ 0\le f\le1\}$
+up to the usual approximation, an infimum of continuous functions of $x$.
+Boundedness and the PB-morphism property are
+Proposition~\ref{prop:category}.  The statement about centres follows from
+$\pi_x(f\cdot1)=f(x)1$ for $f\in C(X_A,\RR)$.
+\end{proof}
+
+\begin{question}[Faithfulness of the bundle]\label{q:faithful-bundle}
+Is $\norm{a}=\sup_{x\in X_A}\norm{\pi_x(a)}$ for every $a\in A$?
+\end{question}
+
+For $C^*$-algebras the corresponding statement is a theorem
+(Dauns--Hofmann), and the usual proof needs a partition-of-unity estimate
+$\norm{\sum_if_i\cdot a_i}\le\max_i\norm{a_i}$ for partitions of unity
+$\{f_i\}$, which holds automatically there but is an extra hypothesis for a
+general Banach module.  A positive answer would give the slogan of this section
+its literal meaning:
+
+\begin{quote}
+\emph{a PB-algebra is the algebra of sections of an upper semicontinuous field
+of pointless PB-algebras over its own classical base.}
+\end{quote}
+
+Two ingredients are still missing for the slogan, and both are recorded in
+\S\ref{sec:open}: Question~\ref{q:faithful-bundle}, and the question of whether
+the fibres are PB-algebras at all, which is the quotient-closure
+Problem~\ref{prob:quotients}.  It is worth stressing what is \emph{not}
+missing: the base, the central action and the fibring are unconditional, and
+they are available because the axioms were built to leave the centre rigid.

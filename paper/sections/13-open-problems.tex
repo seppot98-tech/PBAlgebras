@@ -1,0 +1,128 @@
+\section{Open problems}
+\label{sec:open}
+
+Ordered by leverage: the first three would change the shape of the theory, the
+rest would firm up statements already in use.
+
+\begin{problem}[Completeness]\label{prob:completeness}
+Decide whether $\PB^C_{\gauge_1}$ has equalizers.  By
+Question~\ref{q:equalizer-exists} this is the representability of the
+admissible-character-pair functor $F$, and by Theorem~\ref{thm:t2-cone} the
+naive candidate $\RR1$ is eliminated.  Concretely: is there a PB-algebra $E$
+carrying a universal admissible pair of characters?  A negative answer makes
+$\PB$ incomplete --- the expected outcome --- and a positive one would produce
+an interesting new object, namely the free PB-algebra on a pair of characters
+whose separation is funded by its own commutators.
+\end{problem}
+
+\begin{problem}[Semisimplicity at the critical constant]\label{prob:semisimple}
+Prove or refute Conjecture~\ref{conj:semisimple}: is every
+$A\in\PB^{1/4}_{\gauge_1}$ semisimple?
+
+This is the question opened up by Theorem~\ref{thm:constant-separates}, which
+refutes the earlier notes' claim that no $\gauge_1$-constant excludes
+$T_2(\RR)$.  A positive answer would be the strongest structural statement
+available about the theory: at exactly one value of the constant, the norm gauge
+would exclude the radical --- the thing the $C^*$-identity excludes by means of
+an involution --- while keeping the functorial classical base that
+$\gauge_\infty$ and every $\gauge_q$, $q\ge2$, destroy
+(Warning~\ref{warn:vanishing}).  A counterexample would be nearly as useful: a
+PB-algebra at $C=\tfrac14$ with nonzero radical would be the first object of the
+theory that no $C^*$-algebra can imitate, and by
+Warning~\ref{warn:cone-constant} it would also be the natural place to look for
+a legal cone at the critical constant.
+
+Concrete first steps: compute $C_{\gauge_1}(T_n(\RR))$ for $n\ge3$ and for the
+other elementary radical-carrying algebras; then look for a general lower bound
+on $\kap$ in terms of $\rad(A)$.
+\end{problem}
+
+\begin{problem}[Closure under quotients]\label{prob:quotients}
+Is $\PB^C_{\gauge_1}$ closed under quotients by closed two-sided ideals?
+Quotient maps are always legal (Proposition~\ref{prop:category}); at issue is
+whether $A/I$ satisfies \eqref{ax:pb1} and \eqref{ax:pb2} with the same
+constant.  The danger is that the quotient shrinks the budget faster than the
+defect, since the budget is a supremum over test elements that the quotient may
+collapse.  This single question controls two others: coequalizers, hence
+cocompleteness (\S\ref{sec:categorical}), and whether the fibres $A_x$ of the
+bundle picture are PB-algebras (\S\ref{sec:bundle}).  A counterexample would be
+almost as valuable as a proof, since it would identify the extra hypothesis the
+bundle picture needs.
+\end{problem}
+
+\begin{problem}[Coproducts]\label{prob:coproducts}
+Does $\PB^C_{\gauge_1}$ have coproducts?  Warning~\ref{warn:not-free-product}
+shows the free product is not the answer --- on commutative objects the
+coproduct is $C(X\times Y,\RR)$, by Corollary~\ref{cor:comm-coproducts} --- so
+the question is what replaces it in general.  A natural guess is the
+``budget-completed'' free product: the free product quotiented by whatever is
+needed to keep the images' gauges from growing.  Compute the first
+noncommutative case, $M_2(\RR)\amalg M_2(\RR)$.
+\end{problem}
+
+\begin{problem}[The uniform $C^*$ bound]\label{prob:cstar-bound}
+Prove or refute Conjecture~\ref{conj:cstar-uniform}:
+$\norm{a}^2-\norm{a^2}\le\dist(a,\RR1)^2$ for every element of a real
+$C^*$-algebra.  A proof puts every real $C^*$-algebra into $\PB^{1/4}$ as far as
+\eqref{ax:pb1} is concerned, reducing membership in $\mathcal{I}$ to the
+spectral-reality axiom alone, which is a condition on the centre.
+\end{problem}
+
+\begin{problem}[Real Stampfli]\label{prob:real-stampfli}
+Prove Proposition~\ref{prop:real-stampfli} for $M_n(\RR)$, i.e.\
+$\norm{\ad_a}=2\dist(a,\RR1)$ over the reals, or find the correct real
+statement.  Stampfli's theorem is over $\CC$; the numerics of \texttt{verify/}
+find equality for $n\le4$ but also show the identity \emph{fails} on
+$T_n(\RR)$, so whatever is true is sensitive to more than the norm.
+\end{problem}
+
+\begin{problem}[Matrix stability]\label{prob:matrix-stability}
+Is $\kap_{\gauge_1}(M_n(\RR))=\tfrac14$ for all $n$, and more generally is
+$C_{\gauge_1}(M_n(A))$ bounded in $n$ for a fixed PB-algebra $A$?  Uniform
+boundedness is the minimum requirement for any $K$-theoretic or Morita-theoretic
+development, and without it the category cannot support the usual
+noncommutative-geometry machinery.  The numerics confirm the first question for
+$n\le4$.
+\end{problem}
+
+\begin{problem}[Quaternionic Stone--Weierstrass]\label{prob:quaternionic-sw}
+Prove that \eqref{ax:sq} together with \eqref{ax:pb2} forces an isometric
+unital embedding into an algebra of sections with $\RR$- and $\HH$-fibres, the
+infinite-dimensional form of Proposition~\ref{prop:strict-survivors}.
+\end{problem}
+
+\begin{problem}[The finite-$q$ sweet spot]\label{prob:finite-q}
+Is there a single finite $q$ whose class excludes $T_2(\RR)$ while remaining
+closed under quotients?  Lemma~\ref{lem:gauge-basic}(e) shows the cost in
+advance: for every $q\ge2$ the vanishing locus of $\gauge_q$ is strictly larger
+than the centre, so Lemma~\ref{lem:centre-preserved} fails and the base is no
+longer functorial.  Any positive answer should therefore come with a
+replacement for \S\ref{sec:base}.
+\end{problem}
+
+\begin{problem}[Real Hirschfeld--\.Zelazko]\label{prob:real-hz}
+Give a self-contained proof of the real-scalar input to
+Theorem~\ref{thm:commutativity-forced}: a real Banach algebra with
+$r=\norm{\cdot}$ is commutative.  See Remark~\ref{rem:hz-status} for what
+exactly is needed; the obstacle is that $r=\norm{\cdot}$ on $A$ does not
+transfer verbatim to $A_\CC$.
+\end{problem}
+
+\begin{problem}[An intrinsic budget]\label{prob:intrinsic}
+Is there an element-intrinsic, involution-free replacement for $\gauge$ --- one
+not defined as a supremum over the ambient algebra --- which agrees with
+$\gauge_1$ on the examples?  By Remark~\ref{rem:ambient-referencing} this is
+precisely what stands between $\PB$ and a limit theory: an intrinsic budget
+would be inherited by subalgebras, the solution set $\{f=g\}$ would be an
+object with a legal inclusion, and the $C^*$ proof of completeness would go
+through verbatim.  We regard this as the single most consequential question on
+the list, and note that its answer is plausibly negative --- in which case the
+right theorem is a proof that no such replacement exists.
+\end{problem}
+
+\begin{problem}[Faithfulness of the bundle]\label{prob:faithful}
+Answer Question~\ref{q:faithful-bundle}: is
+$\norm{a}=\sup_{x\in X_A}\norm{\pi_x(a)}$?  Equivalently, does the central
+$C(X_A,\RR)$-module structure satisfy the partition-of-unity estimate that
+holds automatically for $C^*$-algebras?
+\end{problem}

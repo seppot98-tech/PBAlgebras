@@ -1,0 +1,99 @@
+\section{Morphisms}
+\label{sec:morphisms}
+
+The gauge is not functorial: an arbitrary unital homomorphism can increase a
+commutator budget, as the diagonal embedding $\RR^2\hookrightarrow M_2(\RR)$
+already shows.  Rather than clamping the objects, one restricts the arrows.
+
+\begin{definition}[PB-morphisms]\label{def:pb-morphism}
+A \emph{PB-morphism} $f:A\to B$ is a unital algebra homomorphism which is
+\begin{enumerate}
+\item[(i)] contractive: $\norm{f(a)}\le\norm{a}$ for all $a$; and
+\item[(ii)] budget-contracting: $\gauge_B(f(a))\le\gauge_A(a)$ for all $a$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Terminology]
+These are the arrows written $\dagger$ in the earlier notes.  We avoid that
+symbol: it is standard for dagger categories, where it denotes an involutive
+contravariant identity-on-objects functor, and the present notion is neither
+involutive nor contravariant --- and the whole point of the theory is that
+there is no involution.
+\end{remark}
+
+\begin{proposition}\label{prop:category}
+PB-morphisms contain the identities and are closed under composition, so
+$\PB^C_\gauge$ is a category.  Every quotient map $A\to A/I$ by a closed
+two-sided ideal is budget-contracting and contractive.
+\end{proposition}
+
+\begin{proof}
+Identities and composites are clear from the two inequalities.  For a quotient
+$\pi:A\to A/I$, contractivity is the definition of the quotient norm.  For the
+budget, let $\bar z\in A/I$ with $\norm{\bar z}<1$ and choose a lift $z$ with
+$\norm{z}<1$; then
+$\norm{[\pi(a),\bar z]}=\norm{\pi([a,z])}\le\norm{[a,z]}$, and similarly for
+the $q$-th powers and for spectral radii, using that $\pi$ is a contractive
+homomorphism.  Taking suprema gives
+$\gauge_{A/I}(\pi(a))\le\gauge_A(a)$.
+\end{proof}
+
+\subsection{Isometries preserve the budget}
+
+The following simple lemma replaces a claim of the earlier notes and is used
+repeatedly.
+
+\begin{lemma}[Isometric implies budget-nondecreasing]\label{lem:isometric}
+Let $f:A\to B$ be an isometric unital homomorphism.  Then
+$\gauge_B(f(a))\ge\gauge_A(a)$ for every $a\in A$.  Consequently an isometric
+PB-morphism preserves the gauge exactly:
+$\gauge_B\circ f=\gauge_A$.
+\end{lemma}
+
+\begin{proof}
+For $z\in A$ with $\norm{z}\le1$ we have $\norm{f(z)}=\norm{z}\le1$ and
+$f([a,z])=[f(a),f(z)]$, so
+$\norm{[f(a),f(z)]}=\norm{[a,z]}$; the supremum defining $\gauge_B(f(a))$ is
+over a larger set of test elements than the one defining $\gauge_A(a)$.  The
+same argument applies verbatim to $\gauge_q$ and $\gauge_\infty$, using that an
+isometric homomorphism preserves norms of powers and spectral radii of elements
+in its image.  The final clause combines this with
+Definition~\ref{def:pb-morphism}(ii).
+\end{proof}
+
+\begin{definition}[Saturated embeddings]\label{def:saturated}
+A closed unital subalgebra $E\subseteq A$ is \emph{saturated} if
+$\gauge_E(x)=\gauge_A(x)$ for all $x\in E$, i.e.\ if $E$ retains, for each of
+its elements, enough test elements to realise the full ambient budget.
+Equivalently, the inclusion $E\hookrightarrow A$ is a PB-morphism.  We call an
+isometric PB-morphism a \emph{saturated embedding}.
+\end{definition}
+
+\begin{remark}[Correction: monomorphisms]\label{rem:mono-correction}
+The earlier notes assert that the monomorphisms of this category are exactly
+the gauge-preserving isometric embeddings.  That is not correct as a
+categorical statement.  Monomorphism is a cancellation property, and \emph{any}
+injective PB-morphism is monic: if $f$ is injective and $fg=fh$ then $g=h$
+pointwise.  Nothing about isometry or gauge preservation is needed, and a
+contractive injective homomorphism need be neither isometric nor
+gauge-preserving.
+
+What is true, and what the earlier notes were reaching for, is that the
+saturated embeddings are the right notion of \emph{subobject}: they are the
+inclusions along which the ambient structure is faithfully seen, they are
+exactly the isometric PB-morphisms by Lemma~\ref{lem:isometric}, and they are
+the maps for which the obstruction of \S\ref{sec:categorical} is stated.  The
+analogy with $C^*$-algebras is to the fact that an injective
+$*$-homomorphism is automatically isometric; the analogue \emph{fails} here,
+and that failure is not a defect of the write-up but a real difference between
+the theories.
+\end{remark}
+
+\begin{remark}[Comparison with $*$-homomorphisms]
+On a $C^*$-algebra, $*$-homomorphisms are automatically contractive, and
+isometric exactly when injective.  PB-morphisms are budget-contracting by fiat,
+and gauge-preserving exactly when isometric.  The structural reason for the
+difference is that the $C^*$-norm is computed from data internal to the element
+($a$ and $a^*$), whereas the gauge is a supremum over the ambient algebra.  See
+Remark~\ref{rem:ambient-referencing}.
+\end{remark}

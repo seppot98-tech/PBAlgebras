@@ -1,0 +1,219 @@
+\section{First consequences}
+\label{sec:consequences}
+
+Throughout this section $A\in\PB^C_{\gauge_1}$.
+
+\subsection{The centre is classical}
+
+\begin{theorem}[The classical base]\label{thm:base}
+The centre $\Zc(A)$ is a closed commutative subalgebra on which \eqref{ax:sq}
+and \eqref{ax:sr} hold exactly.  Consequently
+\[
+  \Zc(A)\;\cong\;C(X_A,\RR)
+\]
+isometrically and unitally, for a compact Hausdorff space
+$X_A=\Spec\Zc(A)$, uniquely determined up to homeomorphism.
+\end{theorem}
+
+\begin{proof}
+The centre of a Banach algebra is a closed subalgebra containing $1$, and it is
+commutative.  For $a\in\Zc(A)$ we have $\gauge_1(a)=0$ by
+Lemma~\ref{lem:gauge-basic}(e), so \eqref{ax:pb1} reads
+$\norm{a}^2\le\norm{a^2}$, which together with submultiplicativity gives
+\eqref{ax:sq}; and \eqref{ax:pb2} reads exactly \eqref{ax:sr}.  Both are
+statements about norms of elements of $A$, hence hold in $\Zc(A)$ with the
+induced norm.  Now apply Theorem~\ref{thm:gelfand}.
+\end{proof}
+
+\begin{definition}\label{def:base}
+$X_A$ is the \emph{classical base} of $A$.  An object with $X_A$ a single
+point, equivalently $\Zc(A)=\RR1$, is called \emph{pointless}.
+\end{definition}
+
+\begin{remark}[Extracted, not imposed]\label{rem:extracted}
+The base is read off the algebra; one is not required to sit over an ambient
+space chosen in advance.  For $A=M_2(\RR)$ or $A=\HH$ the base is a single
+point, so genuinely pointless noncommutative objects are admitted --- the
+theory does not secretly reduce to bundles over a nontrivial space.  For
+$A=C(X,\RR)$ the base is $X$ and the algebra is its own centre.  The content of
+\S\ref{sec:base} is that this assignment is functorial, and \S\ref{sec:bundle}
+that it exhibits every object as a bundle of pointless ones.
+\end{remark}
+
+\subsection{Approximate spectral reality}
+
+\begin{theorem}[Characters are approximately real]\label{thm:approx-real}
+Let $\chi$ be a character of $A$.  Then for every $a\in A$,
+\[
+  \bigl(\Ima\chi(a)\bigr)^2\;\le\;C\,\gauge_1(a).
+\]
+In particular every character of $A$ is real-valued on $\Zc(A)$, and if $A$ is
+commutative then every character is real-valued.
+\end{theorem}
+
+\begin{proof}
+Write $\chi(a)=\alpha+i\beta$ and set $b=a-\alpha1$, so $\chi(b^2)=-\beta^2$ and
+$\gauge_1(b)=\gauge_1(a)$ by Lemma~\ref{lem:gauge-basic}(b).  As in
+Lemma~\ref{lem:sr-characters},
+$\bigl\lVert\norm{b^2}1-b^2\bigr\rVert\ge\norm{b^2}+\beta^2$, and
+\eqref{ax:pb2} applied to $b$ bounds the left side by
+$\norm{b^2}+C\gauge_1(b)$.
+\end{proof}
+
+\begin{remark}
+This is the quantitative form of ``the theory has real spectra''.  Off the
+centre the bound degrades exactly in proportion to the budget, which is what
+lets $\HH$ and the rotation matrix $J=\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$
+into the theory: both have $J^2=-1$, an unambiguously non-real spectral
+direction, and both are funded by $\gauge_1(J)=4$.  The commutative algebra
+$\CC$, which has the same spectral defect and \emph{no} budget, is excluded.
+The slogan is that complex directions are allowed only when they are
+noncommutative ones.
+\end{remark}
+
+\subsection{The phase transition at $C=\tfrac14$}
+
+\begin{theorem}[Quantitative normaloid bound]\label{thm:normaloid}
+Let $A\in\PB^C_{\gauge_1}$ with $C<\tfrac14$.  Then for every $a\in A$,
+\[
+  r(a)\;\ge\;(1-4C)\,\norm{a}.
+\]
+\end{theorem}
+
+\begin{proof}
+By \eqref{ax:pb1} and the universal bound $\gauge_1(x)\le4\norm{x}^2$,
+\[
+  \norm{x^2}\;\ge\;\norm{x}^2-C\gauge_1(x)\;\ge\;(1-4C)\norm{x}^2
+  \qquad\text{for every } x\in A .
+\]
+Apply this with $x=a^{2^n}$ and put $u_n=\norm{a^{2^n}}^{1/2^n}$, so that
+$u_{n+1}^{2^{n+1}}\ge(1-4C)\,u_n^{2^{n+1}}$, i.e.\
+$u_{n+1}\ge(1-4C)^{1/2^{n+1}}u_n$.  Iterating from $u_0=\norm{a}$,
+\[
+  u_n\;\ge\;\norm{a}\prod_{k=1}^{n}(1-4C)^{2^{-k}}
+  \;=\;\norm{a}\,(1-4C)^{\,1-2^{-n}}\;\ge\;\norm{a}\,(1-4C),
+\]
+and $r(a)=\lim_n u_n$ by Beurling's formula.
+\end{proof}
+
+\begin{corollary}\label{cor:subcritical-rigid}
+If $C<\tfrac14$ then every $A\in\PB^C_{\gauge_1}$ is semisimple and contains no
+nonzero nilpotent and no nonzero quasinilpotent element.
+\end{corollary}
+
+\begin{proof}
+A quasinilpotent has $r(a)=0$, hence $\norm{a}=0$ by
+Theorem~\ref{thm:normaloid}; nilpotents are quasinilpotent, and $\rad(A)$
+consists of quasinilpotents.
+\end{proof}
+
+\begin{theorem}[Phase transition]\label{thm:phase-transition}
+For the gauge $\gauge_1$:
+\begin{enumerate}
+\item[(a)] For every $C<\tfrac14$, the class $\PB^C_{\gauge_1}$ consists of
+  semisimple algebras with $r\ge(1-4C)\norm{\cdot}$, and contains no algebra
+  with a nonzero nilpotent --- in particular neither $M_2(\RR)$ nor $T_2(\RR)$.
+\item[(b)] At $C=\tfrac14$ the pointless objects $M_2(\RR)$ and $\HH$ enter,
+  with $\kap_{\gauge_1}(M_2(\RR))=\lam_{\gauge_1}(M_2(\RR))=\tfrac14$ attained
+  at $E_{12}$ and at $J$ respectively.
+\end{enumerate}
+Part (a) is \statusproved; the equalities in (b) are \statusnum, the
+inequalities $\ge\tfrac14$ being Examples~\ref{ex:H} and \ref{ex:M2}.
+\end{theorem}
+
+\begin{proof}[Proof of (a)]
+The first clause is Theorem~\ref{thm:normaloid} and
+Corollary~\ref{cor:subcritical-rigid}.  Both $M_2(\RR)$ and $T_2(\RR)$ contain
+the nonzero nilpotent $E_{12}$, so neither is subcritical.
+\end{proof}
+
+\begin{theorem}[A constant \emph{does} separate $T_2$ from $M_2$]
+\label{thm:constant-separates}
+$\kap_{\gauge_1}(T_2(\RR))\ge\kap^*=0.3098421747\ldots>\tfrac14$, where
+$\kap^*$ is the algebraic number of Proposition~\ref{prop:T2-constant}.  Hence
+$T_2(\RR)\notin\PB^{1/4}_{\gauge_1}$, while $M_2(\RR)\in\PB^{1/4}_{\gauge_1}$,
+and every constant $C\in[\tfrac14,\kap^*)$ admits the one and excludes the
+other.
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{prop:T2-constant} and Example~\ref{ex:M2}.
+\end{proof}
+
+\begin{remark}[Correction to the earlier notes]\label{rem:separation-correction}
+Theorem~\ref{thm:constant-separates} contradicts the assertion of the earlier
+notes that no $\gauge_1$-constant separates $T_2(\RR)$ from $M_2(\RR)$, an
+assertion that rested on locating the extremiser of $T_2(\RR)$ at the shared
+element $E_{12}$.  It does not sit there; see
+Remark~\ref{rem:T2-correction}.  The consequences are structural, not
+bookkeeping.  The earlier notes present the choice between $\gauge_1$ and
+$\gauge_\infty$ as a forced trade --- $\gauge_1$ is closure-friendly and makes
+the base functorial but cannot exclude non-central radical, $\gauge_\infty$
+excludes it but vanishes on whole directions and so breaks closure.  At
+$C=\tfrac14$ the trade is not forced in the one case we can compute: the norm
+gauge excludes $T_2(\RR)$ \emph{and} keeps the functorial base of
+\S\ref{sec:base}.  How general that is, we do not know, and it is the most
+interesting question the correction opens up.
+\end{remark}
+
+\begin{conjecture}[Semisimplicity at the critical constant]
+\label{conj:semisimple}
+Every $A\in\PB^{1/4}_{\gauge_1}$ is semisimple, i.e.\ $\rad(A)=0$.
+\end{conjecture}
+
+\begin{remark}
+Note that this does \emph{not} follow from Theorem~\ref{thm:normaloid}, which is
+vacuous at $C=\tfrac14$, and that it is not a statement about nilpotent
+\emph{elements}: $M_2(\RR)\in\PB^{1/4}$ contains the nilpotent $E_{12}$ and is
+nonetheless simple.  The evidence is that the elementary radical-carrying
+examples are all excluded at $\tfrac14$: $\RR[\varepsilon]/(\varepsilon^2)$ has
+an unfunded defect (Example~\ref{ex:excluded}), and $T_2(\RR)$ has
+$\kap=\kap^*>\tfrac14$ (Proposition~\ref{prop:T2-constant}).  If the conjecture
+holds, then at the critical constant the norm gauge achieves without an
+involution what the $C^*$-identity achieves with one --- the exclusion of the
+radical --- while retaining the functoriality that $\gauge_\infty$ destroys, and
+the ``discrimination versus closure'' trade-off of
+Remark~\ref{rem:gauge-tradeoff} dissolves at exactly one value of $C$.  This is
+Problem~\ref{prob:semisimple}.
+\end{remark}
+
+\begin{remark}[What the transition means]
+The interval $C\in(0,\tfrac14)$ is not a family of interesting theories: by
+Corollary~\ref{cor:subcritical-rigid} every object there is semisimple and
+nilpotent-free, and the surviving finite-dimensional objects are products of
+copies of $\RR$ and $\HH$ (Proposition~\ref{prop:strict-survivors}).  The
+noncommutative content appears at $C=\tfrac14$, where the pointless objects
+$M_2(\RR)$ and $\HH$ arrive together.  Above $\kap^*$ the non-central radical
+arrives too.  So the constant is not a free parameter to be tuned away: it
+indexes a genuine filtration, with at least two thresholds,
+$\tfrac14$ and $\kap^*$, and the interval between them is where the theory looks
+most like a noncommutative geometry --- noncommutative points, no radical, and a
+functorial classical base.
+\end{remark}
+
+\begin{proposition}[The survivors at zero budget]\label{prop:strict-survivors}
+Let $A$ be finite-dimensional and satisfy \eqref{ax:sq} exactly together with
+\eqref{ax:pb2}.  Then $A$ is a product of copies of $\RR$ and $\HH$.
+\end{proposition}
+
+\begin{proof}
+\eqref{ax:sq} gives $\rad(A)=0$ (Lemma~\ref{lem:sq-radius}), so by
+Wedderburn $A\cong\prod_iM_{n_i}(D_i)$ with $D_i\in\{\RR,\CC,\HH\}$.  A block
+with $n_i\ge2$ contains a nonzero square-zero element, contradicting
+\eqref{ax:sq}.  A block $\CC$ is central, so its budget vanishes and
+\eqref{ax:pb2} reduces to \eqref{ax:sr}, which $i\in\CC$ violates as in
+Remark~\ref{rem:fd-shadow}.  Blocks $\RR$ and $\HH$ both survive: the norm of
+$\HH$ is multiplicative, giving \eqref{ax:sq}, and
+$\gauge_1(v)=4\abs{v}^2$ for $v$ purely imaginary
+(Proposition~\ref{prop:real-stampfli}) funds \eqref{ax:pb2} at $C=\tfrac14$
+with equality.
+\end{proof}
+
+\begin{remark}[Dyson's threefold way, with the unitary class excised]
+Proposition~\ref{prop:strict-survivors} says the zero-budget theory sees the
+orthogonal and symplectic classes and not the unitary one.  The
+infinite-dimensional analogue --- that \eqref{ax:sq} together with
+\eqref{ax:pb2} forces an isometric embedding into an algebra of sections with
+$\RR$- and $\HH$-fibres --- would be a quaternionic Stone--Weierstrass theorem.
+It is \statusconj; see Problem~\ref{prob:quaternionic-sw}.
+\end{remark}

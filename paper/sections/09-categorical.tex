@@ -1,0 +1,295 @@
+\section{Categorical status}
+\label{sec:categorical}
+
+We work in $\PB^C_{\gauge_1}$ for a fixed $C$, and we assume
+Convention~\ref{conv:degenerate}.
+
+\subsection{Initial and terminal objects}
+
+\begin{proposition}\label{prop:terminal}
+$\RR$ is initial and the degenerate algebra $0$ is terminal.  Without
+Convention~\ref{conv:degenerate} there is no terminal object, and hence no
+limits, for reasons unrelated to the subject.
+\end{proposition}
+
+\begin{proof}
+For initiality, the unit $\RR\to A$, $\lambda\mapsto\lambda1$, is the unique
+unital homomorphism; it is isometric and both gauges vanish on its image.  For
+terminality, $A\to0$ is unique, contractive and budget-contracting.
+
+Without the degenerate object, suppose $T$ were terminal and let
+$\varphi:M_2(\RR)\to T$ be the unique morphism.  As $M_2(\RR)$ is simple and
+$\varphi$ is unital, $\varphi$ is injective.  For $v\in O(2)$ the automorphism
+$\Ad_v$ of $M_2(\RR)$ is isometric, hence gauge-preserving by
+Lemma~\ref{lem:isometric}, hence a PB-morphism; so $\varphi\circ\Ad_v$ is again
+a morphism $M_2(\RR)\to T$, and uniqueness gives
+$\varphi\circ\Ad_v=\varphi$.  Injectivity of $\varphi$ then forces
+$\Ad_v=\id$ for every $v\in O(2)$, which is false.  Hence there is no terminal
+object, and since the terminal object is the empty product, no limits.
+\end{proof}
+
+\subsection{Products}
+
+\begin{proposition}\label{prop:products}
+$\PB^C_{\gauge_1}$ has all products.  For $A=\prod_iA_i$ with the sup norm and
+$a=(a_i)$,
+\[
+  \gauge_1(a)=\sup_i\gauge_1(a_i),
+\]
+and the projections are PB-morphisms with the expected universal property.
+\end{proposition}
+
+\begin{proof}
+For the gauge formula, $\norm{[a,z]}=\sup_i\norm{[a_i,z_i]}$ and $\norm{z}\le1$
+forces $\norm{z_i}\le1$, giving $\le$; conversely a test element concentrated in
+one factor gives $\ge$.
+
+For \eqref{ax:pb1} let $M=\norm{a}=\sup_i\norm{a_i}$ and fix $\varepsilon>0$ and
+an index $i$ with $\norm{a_i}\ge M-\varepsilon$.  Then
+\[
+  \norm{a}^2-\norm{a^2}
+  \;\le\;M^2-\norm{a_i^2}
+  \;=\;\bigl(M^2-\norm{a_i}^2\bigr)+\bigl(\norm{a_i}^2-\norm{a_i^2}\bigr)
+  \;\le\;2M\varepsilon+C\gauge_1(a_i)
+  \;\le\;2M\varepsilon+C\gauge_1(a),
+\]
+and $\varepsilon\downarrow0$ gives the claim.  For \eqref{ax:pb2} write
+$S=\norm{a^2}=\sup_j\norm{a_j^2}$; then for each $i$,
+\[
+  \bigl\lVert S1-a_i^2\bigr\rVert
+  \;\le\;\bigl\lVert\,\norm{a_i^2}1-a_i^2\,\bigr\rVert+\bigl(S-\norm{a_i^2}\bigr)
+  \;\le\;\norm{a_i^2}+C\gauge_1(a_i)+S-\norm{a_i^2}
+  \;\le\;S+C\gauge_1(a),
+\]
+and taking the supremum over $i$ on the left gives
+$\bigl\lVert S1-a^2\bigr\rVert\le S+C\gauge_1(a)$.  Projections contract both norm and gauge; for
+a cone $(f_i:T\to A_i)$ the map $f=(f_i)$ satisfies
+$\gauge_1(f(x))=\sup_i\gauge_1(f_i(x))\le\gauge_1(x)$ and is contractive, and it
+is the unique such factorisation.
+\end{proof}
+
+\begin{remark}[Uniformity of the constant is essential]
+The proof uses one constant for all factors.  In $\PB_{\gauge_1}=\bigcup_C\PB^C$
+products need not exist: a family with $C_{\gauge_1}(A_i)\to\infty$ has a product
+whose critical constant is the supremum, hence infinite.  This is a reason to
+regard the filtered pieces $\PB^C$, and not their union, as the categories of
+interest.
+\end{remark}
+
+\subsection{Subalgebras, and why equalizers are hard}
+
+\begin{proposition}[The class is not closed under subalgebras]
+\label{prop:not-closed-subalgebras}
+A closed unital subalgebra of a PB-algebra need not be a PB-algebra.  Indeed
+$\RR1\oplus\RR E_{12}\cong\RR[\varepsilon]/(\varepsilon^2)$ is a closed unital
+subalgebra of $M_2(\RR)$, and by Example~\ref{ex:excluded} it is not a
+PB-algebra for any constant.
+\end{proposition}
+
+\begin{remark}[Ambient referencing]\label{rem:ambient-referencing}
+Proposition~\ref{prop:not-closed-subalgebras} isolates the structural
+difficulty.  The gauge is defined by a supremum over test elements $z$ drawn
+from the ambient algebra, so passing to a subalgebra can destroy the budget
+while preserving the defect that the budget was paying for.  A $C^*$-algebra
+has no analogous failure: the datum defining the norm, $r(a^*a)^{1/2}$, is built
+from $a$ and $a^*$, both of which lie in any $*$-subalgebra containing $a$.
+Closure under $*$-subalgebras is free there, and that is exactly why $C^*$
+has equalizers --- the solution set $\{f=g\}$ is a norm-closed $*$-subalgebra,
+hence an object, and its inclusion is isometric, hence legal.  Everything
+peculiar about limits in $\PB$ traces back to this one asymmetry.
+\end{remark}
+
+\begin{proposition}[The set-theoretic equalizer is not legal]
+\label{prop:delta-not-saturated}
+Let $A=M_2(\RR)$, $u=\operatorname{diag}(1,-1)$, and consider the parallel pair
+$\id,\Ad_u:A\rightrightarrows A$.  The set-theoretic equalizer is the diagonal
+$\Delta=\{\operatorname{diag}(\alpha,\beta)\}\cong\RR^2$, which \emph{is} a
+PB-algebra, but its inclusion $\Delta\hookrightarrow M_2(\RR)$ is \emph{not} a
+PB-morphism: $\gauge_1^\Delta\equiv0$ while
+$\gauge_1^{M_2}(\operatorname{diag}(\alpha,\beta))=(\alpha-\beta)^2$, so
+$\Delta$ is not saturated.  The largest saturated subalgebra of $\Delta$ is
+$\RR1$.
+\end{proposition}
+
+\begin{proof}
+$\Delta$ is commutative, so its own gauge vanishes.  In $M_2(\RR)$,
+$[\operatorname{diag}(\alpha,\beta),z]$ has entries
+$(\alpha-\beta)z_{12}$ and $-(\alpha-\beta)z_{21}$ off the diagonal and zero on
+it, so its norm is $\abs{\alpha-\beta}\max(\abs{z_{12}},\abs{z_{21}})\le\abs{\alpha-\beta}$
+with equality for $z=E_{12}$; this also agrees with
+Proposition~\ref{prop:real-stampfli}, since
+$\dist(\operatorname{diag}(\alpha,\beta),\RR1)=\tfrac12\abs{\alpha-\beta}$.  The
+subalgebras of $\Delta\cong\RR^2$ are $\RR1$ and $\Delta$, and $\RR1$ is
+saturated because both gauges vanish on it.
+\end{proof}
+
+\begin{remark}[A retraction, upheld]
+The earlier notes first concluded from Proposition~\ref{prop:delta-not-saturated}
+that $\PB$ is incomplete, then correctly retracted the argument: a categorical
+equalizer need not be the set-theoretic one, and the natural candidate is
+instead the largest saturated subalgebra $\RR1$, whose universality has to be
+tested against \emph{legal} cones only.  That retraction stands.  What follows
+settles the question it left behind.
+\end{remark}
+
+\subsection{Legal cones: the question, and its answer}
+
+\begin{question}[\cite{notes}, Question~19]\label{q:legal-cone}
+Does there exist an object $T$ and a PB-morphism $t:T\to M_2(\RR)$ with
+$t(T)\subseteq\Delta$ and $t(T)\ne\RR1$?
+\end{question}
+
+The question has a clean reformulation, which also explains why it is not
+obviously answerable either way.
+
+\begin{lemma}[Cones are admissible character pairs]\label{lem:cones-characters}
+PB-morphisms $t:T\to M_2(\RR)$ with $t(T)\subseteq\Delta$ correspond bijectively
+to ordered pairs $(\chi_1,\chi_2)$ of real characters of $T$ satisfying
+\begin{equation}\label{eq:admissible}
+  \bigl(\chi_1(x)-\chi_2(x)\bigr)^2\;\le\;\gauge_1^T(x)\qquad\text{for all }x\in T,
+\end{equation}
+via $t(x)=\operatorname{diag}(\chi_1(x),\chi_2(x))$.  Every such $t$ equalizes
+$\id$ and $\Ad_u$.  Call a pair satisfying \eqref{eq:admissible}
+\emph{admissible}.
+\end{lemma}
+
+\begin{proof}
+A unital homomorphism into $\Delta\cong\RR^2$ is a pair of unital
+homomorphisms $T\to\RR$, i.e.\ a pair of real characters.  Contractivity is
+automatic: $\norm{\operatorname{diag}(\chi_1(x),\chi_2(x))}=\max_i\abs{\chi_i(x)}\le r(x)\le\norm{x}$.
+The budget condition is $\gauge_1^{M_2}(t(x))\le\gauge_1^T(x)$, and
+$\gauge_1^{M_2}(\operatorname{diag}(\alpha,\beta))=(\alpha-\beta)^2$ by
+Proposition~\ref{prop:delta-not-saturated}.  Finally $\Ad_u$ fixes $\Delta$
+pointwise, so any such $t$ equalizes the pair.
+\end{proof}
+
+\begin{lemma}[Admissible pairs agree on the centre]\label{lem:agree-on-centre}
+If $(\chi_1,\chi_2)$ is admissible then $\chi_1=\chi_2$ on $\Zc(T)$.
+Equivalently, the two characters lie over the same point of the classical base
+$X_T$.
+\end{lemma}
+
+\begin{proof}
+For $x\in\Zc(T)$ we have $\gauge_1^T(x)=0$, so \eqref{eq:admissible} forces
+$\chi_1(x)=\chi_2(x)$.
+\end{proof}
+
+So a legal cone with non-scalar image requires an object with two distinct
+characters in a single fibre of its base --- a pointless-in-the-relevant-fibre
+object that is noncommutative enough to fund the separation of its own
+characters.  The commutative objects cannot do it, by
+Lemma~\ref{lem:agree-on-centre}; $M_2(\RR)$ cannot do it, having no characters
+at all.  But there is an object that can.
+
+\begin{theorem}[Answer to Question~\ref{q:legal-cone}, for $C\ge\kap^*$]
+\label{thm:t2-cone}
+Let $C\ge\kap^*=0.3098\ldots$, so that $T=T_2(\RR)$ is an object of
+$\PB^C_{\gauge_1}$ (Proposition~\ref{prop:T2-constant}), and let
+\[
+  t:T_2(\RR)\longrightarrow M_2(\RR),
+  \qquad
+  t\begin{pmatrix}\alpha&\gamma\\0&\beta\end{pmatrix}
+  =\begin{pmatrix}\alpha&0\\0&\beta\end{pmatrix}
+\]
+be the map killing the radical.  Then $t$ is a PB-morphism, it equalizes $\id$
+and $\Ad_u$, and its image is all of $\Delta$.  Consequently $\RR1$ is
+\emph{not} the equalizer of $\id$ and $\Ad_u$ in $\PB^C_{\gauge_1}$.
+\end{theorem}
+
+\begin{proof}
+$t$ is the quotient by $\rad(T_2(\RR))=\RR E_{12}$ followed by the identification
+$T_2(\RR)/\RR E_{12}\cong\RR^2\cong\Delta$, so it is a unital homomorphism with
+image $\Delta$.  Its two components are the characters
+$\chi_1(x)=\alpha$ and $\chi_2(x)=\beta$; by Lemma~\ref{lem:cones-characters} it
+remains to verify admissibility \eqref{eq:admissible}.
+
+Let $x=\begin{psmallmatrix}\alpha&\gamma\\0&\beta\end{psmallmatrix}$ and
+$z=\begin{psmallmatrix}p&c\\0&q\end{psmallmatrix}$.  A direct computation gives
+\[
+  [x,z]=\bigl(c(\alpha-\beta)+\gamma(q-p)\bigr)E_{12},
+\]
+so taking $z=E_{12}$, which lies in $T_2(\RR)$ and has norm $1$, yields
+$\norm{[x,E_{12}]}=\abs{\alpha-\beta}$ and therefore
+\[
+  \gauge_1^{T_2}(x)\;\ge\;(\alpha-\beta)^2=\bigl(\chi_1(x)-\chi_2(x)\bigr)^2 .
+\]
+That is exactly \eqref{eq:admissible}.  Finally, if $\RR1$ with its inclusion
+were the equalizer, the cone $t$ would factor through it, forcing
+$t(T_2(\RR))\subseteq\RR1$, contradicting $t(T_2(\RR))=\Delta$.
+\end{proof}
+
+\begin{remark}[The mechanism]
+$T_2(\RR)$ has two characters, the two diagonal entries, separated by a
+non-central radical direction; that direction is precisely what funds the budget
+realising their separation.  In the language of \S\ref{sec:visibility} it is an
+object whose noncommutativity is Jacobson-invisible but commutator-visible ---
+and it is the commutator that the morphism law measures.
+\end{remark}
+
+\begin{warning}[The answer depends on the constant]\label{warn:cone-constant}
+Theorem~\ref{thm:t2-cone} requires $T_2(\RR)$ to be an \emph{object}, and by
+Proposition~\ref{prop:T2-constant} it is one only for $C\ge\kap^*>\tfrac14$.  So
+the status of Question~\ref{q:legal-cone} is not uniform in $C$:
+\begin{itemize}
+\item for $C\ge\kap^*$ the answer is \emph{yes} and $\RR1$ is not the equalizer;
+\item for $C\in[\tfrac14,\kap^*)$ --- in particular at the critical constant
+  $C=\tfrac14$, where $M_2(\RR)$ lives and $T_2(\RR)$ does not --- the question
+  remains \emph{open}: the cone constructed above is unavailable, and we know of
+  no other.
+\end{itemize}
+This is worth stating plainly because it is easy to miss.  A cone is an object
+of the category, so an answer to a limit question can change as the constant
+crosses a threshold, and $\kap^*$ is such a threshold.  Note also what
+Lemma~\ref{lem:agree-on-centre} demands of any cone at $C=\tfrac14$: an object
+with two distinct characters lying over one point of its base, with their
+separation funded by its own commutators.  If
+Conjecture~\ref{conj:semisimple} holds, such an object is semisimple, which
+makes the search considerably harder --- the obvious source of two characters
+in one fibre is a non-central radical, and that is exactly what
+semisimplicity forbids.
+\end{warning}
+
+\begin{question}[Does the equalizer exist?]\label{q:equalizer-exists}
+Theorem~\ref{thm:t2-cone} eliminates the natural candidate but does not decide
+existence.  By Lemma~\ref{lem:cones-characters} the equalizer of $\id$ and
+$\Ad_u$ exists if and only if the functor
+\[
+  F:\PB^C_{\gauge_1}\longrightarrow\cat{Set},
+  \qquad
+  F(T)=\bigl\{\text{admissible pairs of characters of }T\bigr\}
+\]
+is representable, in which case the representing object, equipped with its
+universal admissible pair, is the equalizer.
+\end{question}
+
+This is a sharper question than the original, and it is the form in which we
+recommend attacking completeness.  Two remarks on what a solution must handle.
+$F(M_2(\RR))=\varnothing$, so a representing object $E$ admits no morphism from
+$M_2(\RR)$; and $F$ takes a commutative $C(X,\RR)$ to the diagonal pairs only,
+so $\Hom(C(X,\RR),E)$ must be the set of continuous maps $X_E\to X$ by
+Corollary~\ref{cor:points} --- a strong constraint on the base of $E$.
+
+\subsection{Colimits}
+
+\begin{proposition}\label{prop:comm-colimits}
+By Theorem~\ref{thm:coreflection} the inclusion
+$\CommPB\hookrightarrow\PB^C_{\gauge_1}$ is a left adjoint, hence preserves all
+colimits that exist in $\CommPB\simeq\CompHaus\op$.  In particular coproducts of
+commutative objects exist and are given by products of bases
+(Corollary~\ref{cor:comm-coproducts}).
+\end{proposition}
+
+\begin{remark}[Status of cocompleteness]
+Warning~\ref{warn:not-free-product} disposes of the programme of the earlier
+notes, which proposed to establish cocompleteness by checking that free products
+of PB-algebras are PB-algebras: the free product is not the coproduct here.
+Coequalizers reduce to the question of whether $\PB$ is closed under quotients
+by closed two-sided ideals --- quotient maps are always legal by
+Proposition~\ref{prop:category}, so the only issue is whether the quotient
+satisfies the axioms --- which is Problem~\ref{prob:quotients}, and which is
+also exactly what the bundle picture of \S\ref{sec:bundle} needs.  We regard
+``cocomplete but not complete'' as the expected outcome, and note for the record
+that the earlier notes' retraction of the reflector argument was correct: a
+reflective subcategory of a complete category inherits limits, so a reflector
+$\BanAlg\to\PB$ would force completeness.
+\end{remark}

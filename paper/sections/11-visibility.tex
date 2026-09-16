@@ -1,0 +1,82 @@
+\section{Two notions of visibility}
+\label{sec:visibility}
+
+The examples separate two senses in which a ``nilpotent direction'' can be
+visible, and keeping them apart explains exactly which algebras the two theories
+admit.
+
+\begin{definition}\label{def:visibility}
+Let $a\in A$.
+\begin{itemize}
+\item $a$ is \emph{Jacobson-invisible} if $a\in\rad(A)$, i.e.\ $a$ is killed by
+  every irreducible representation.  This is the scheme-theoretic sense of an
+  infinitesimal thickening, as in $\RR[\varepsilon]/(\varepsilon^2)$.
+\item $a$ is \emph{commutator-invisible} if $\gauge_1(a)=0$, i.e.\
+  $a\in\Zc(A)$.
+\end{itemize}
+\end{definition}
+
+The two agree on central elements (both invisible) and on matrix nilpotents in a
+simple block (both visible), but they diverge in general.
+
+\begin{proposition}[$T_2(\RR)$ separates the notions]\label{prop:visibility-T2}
+In $T_2(\RR)$ the element $E_{12}$ lies in the radical, hence is
+Jacobson-invisible --- it is killed by both diagonal characters --- yet
+$\gauge_1(E_{12})=4>0$, so it is commutator-visible.  Consequently
+$\gauge_1$ tracks non-centrality, which coincides with representational
+visibility only when $\rad(A)\subseteq\Zc(A)$.
+\end{proposition}
+
+\begin{remark}[A claim that needs the constant]\label{rem:excess}
+The earlier notes summarise the situation as: the excess of $\PB$ over the
+intersection $\mathcal{I}$ is exactly the non-central radical, because the
+$C^*$-instrument $a\mapsto a^*a$ forbids radical outright while $\gauge_1$
+forbids only \emph{central} radical.  The first half of that is right --- central
+radical is unfunded, hence always excluded.  The second half is not a theorem,
+and at $C=\tfrac14$ it is contradicted by the one case we can compute:
+$T_2(\RR)$ has non-central radical and is \emph{not} an object at $\tfrac14$
+(Proposition~\ref{prop:T2-constant}).  What is true is that $\gauge_1$ forbids
+central radical at every constant, and forbids the non-central radical of
+$T_2(\RR)$ below $\kap^*$.  Whether it forbids \emph{all} radical at
+$C=\tfrac14$ is Conjecture~\ref{conj:semisimple}.
+\end{remark}
+
+\begin{proposition}[$\gauge_\infty$ discriminates but is fragile]
+\label{prop:dinf-fragile}
+The spectral gauge excludes $T_2(\RR)$: every commutator there is a multiple of
+the nilpotent $E_{12}$, so $\gauge_\infty\equiv0$ on $T_2(\RR)$ while the square
+defect of $E_{12}$ is $1$, which is therefore unfunded.  It admits $M_2(\RR)$,
+where $\gauge_\infty(E_{12})=1$ via the non-nilpotent commutator
+$[E_{12},E_{21}]=E_{11}-E_{22}$.  This is a genuinely spectral,
+semisimplicity-sensitive cut, matching the $C^*$ exclusion of the radical.  But
+$\gauge_\infty$ vanishes on whole radical-commutator directions, and quotients
+can manufacture such directions, so a $\gauge_\infty$-class has no reason to be
+closed under quotients.
+\end{proposition}
+
+\begin{remark}[The trade-off, tabulated]
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Gauge & Binding budget on $T_2(\RR)$ & Behaviour \\
+\midrule
+$\gauge_1$ & $\gauge_1(E_{12})=4$, defect funded (but $\kap=\kap^*>\tfrac14$) & closure-friendly; base is functorial \\
+large finite $q$ & $\gauge_q$ small but nonzero & plausibly closed; $T_2$ approximately out \\
+$\gauge_\infty$ & $\gauge_\infty\equiv0$, defect unfunded & $T_2$ excluded; closure fails \\
+\bottomrule
+\end{tabular}
+\end{center}
+The first row's parenthetical is where the earlier notes and the present
+treatment part company: at $C=\tfrac14$ the norm gauge \emph{does} exclude
+$T_2(\RR)$ (Theorem~\ref{thm:constant-separates}), so the first row buys
+discrimination as well as closure, and the trade-off the table describes may be
+an artefact of looking only at constants above $\kap^*$.  The middle row is the
+hope that a single large finite $q$ gets the discrimination of $\gauge_\infty$
+without its zeros.  It is
+Problem~\ref{prob:finite-q}, and we stress that
+Lemma~\ref{lem:gauge-basic}(e) makes it \emph{not} merely a matter of tuning:
+already at $q=2$ the vanishing locus is strictly larger than the centre, so the
+functoriality of \S\ref{sec:base} is lost at every finite $q\ge2$, not only in
+the limit.  Any positive answer to Problem~\ref{prob:finite-q} therefore buys
+discrimination at the price of the geometry.
+\end{remark}

@@ -1,0 +1,96 @@
+\section{The axioms}
+\label{sec:axioms}
+
+\begin{definition}[PB-algebras]\label{def:pb}
+Fix a gauge $\gauge$ and a constant $C>0$.  An algebra $A$ is a
+\emph{perfectly bounded algebra}, or \emph{PB-algebra}, for the data
+$(\gauge,C)$ if for all $a\in A$
+\begin{align}
+  \tag{PB1}\label{ax:pb1}
+  \norm{a}^2-\norm{a^2}&\le C\,\gauge(a), \\
+  \tag{PB2}\label{ax:pb2}
+  \bigl\lVert\,\norm{a^2}1-a^2\,\bigr\rVert&\le\norm{a^2}+C\,\gauge(a) .
+\end{align}
+We write $\PB^C_\gauge$ for the resulting category (morphisms in
+\S\ref{sec:morphisms}), abbreviated $\PB$ when the data are understood, and
+$\PB_\gauge=\bigcup_{C>0}\PB^C_\gauge$.  The unrelaxed case, where the budget
+term is deleted from \eqref{ax:pb1} only, is written $\PB^0$.
+\end{definition}
+
+\begin{convention}[The degenerate object]\label{conv:degenerate}
+We admit the zero algebra $0$, in which $1=0$, as an object of $\PB^C_\gauge$;
+both axioms hold vacuously.  This is the same convention that makes the
+category of unital $C^*$-algebras complete, and without it $\PB$ has no
+terminal object and fails to have limits for a reason that has nothing to do
+with the subject (Proposition~\ref{prop:terminal}).
+\end{convention}
+
+\subsection{The axioms as an invariant}
+
+Definition~\ref{def:pb} quantifies over a constant, which is awkward: the
+constant is not an invariant of $A$, only a bound on one.  The following
+repackaging is equivalent and is what the verification code computes.
+
+\begin{definition}[Critical constants]\label{def:critical}
+For an algebra $A$ and a gauge $\gauge$ put
+\[
+  \kap_\gauge(A)=\sup_{a\in A}\frac{\norm{a}^2-\norm{a^2}}{\gauge(a)},
+  \qquad
+  \lam_\gauge(A)=\sup_{a\in A}\frac{\bigl(\bigl\lVert\norm{a^2}1-a^2\bigr\rVert-\norm{a^2}\bigr)_+}{\gauge(a)},
+\]
+with the conventions $0/0=0$ and $t/0=+\infty$ for $t>0$.  Set
+$C_\gauge(A)=\max\bigl(\kap_\gauge(A),\lam_\gauge(A)\bigr)$.
+\end{definition}
+
+\begin{lemma}\label{lem:critical-reformulation}
+$A\in\PB^C_\gauge$ if and only if $C_\gauge(A)\le C$.  In particular
+$A\in\PB_\gauge$ if and only if $C_\gauge(A)<\infty$, and this requires in
+particular that every $a$ with $\gauge(a)=0$ satisfy \eqref{ax:sq} and
+\eqref{ax:sr} exactly.
+\end{lemma}
+
+\begin{proof}
+Immediate from the definitions; both defects and the gauge are homogeneous of
+degree $2$, so the suprema may equivalently be taken over the unit sphere.
+\end{proof}
+
+\begin{remark}[Why this matters]
+The reformulation makes three things visible that Definition~\ref{def:pb}
+obscures.  First, $C_\gauge(-)$ is a genuine numerical invariant of an algebra,
+computable in finite dimensions, and the categories $\PB^C_\gauge$ are a
+filtration of $\PB_\gauge$ by its value.  Second, the case $\gauge(a)=0$ is not
+a boundary case to be waved through but the heart of the matter: on the
+$\gauge_1$-null elements --- that is, on the centre --- the axioms are the
+rigid ones, with no slack whatsoever.  Third, it is now a well-posed finite
+computation to ask whether a given finite-dimensional algebra is a PB-algebra,
+which is what \texttt{verify/} does.
+\end{remark}
+
+\subsection{The two defects}
+
+\begin{remark}[Reading the axioms]\label{rem:reading}
+\eqref{ax:pb1} measures \emph{approximate normality} and \eqref{ax:pb2}
+\emph{approximate spectral reality}, each with slack proportional to the
+commutation defect.  The contrast with the $C^*$-identity is exact.  On a
+$C^*$-algebra,
+\[
+  \norm{a}^2=\norm{a^*a}=r(a^*a)
+  \qquad\text{whereas}\qquad
+  \norm{a}^2=\norm{a^2}\iff a\ \text{normal},
+\]
+so the $C^*$-norm is a singular-value radius and the PB-norm an eigenvalue
+radius.  The two agree exactly on normal elements; in the commutative case
+everything is normal and both roads lead to $\CompHaus$.  ``Singular value
+versus eigenvalue'' is the fork, and it is the reason the two theories are
+transverse rather than nested (\S\ref{sec:cstar}).
+\end{remark}
+
+\begin{convention}[Normalisation]\label{conv:normalisation}
+By Lemma~\ref{lem:gauge-basic}(c) one may prefer the normalised gauge
+$\tilde\gauge=\tfrac14\gauge$, for which $\tilde\gauge(a)\le\norm{a}^2$ and
+both sides of \eqref{ax:pb1} live on the common scale $[0,\norm{a}^2]$.  Then
+$C=\tfrac14$ becomes $C=1$.  We keep the unnormalised gauge and carry the
+$\tfrac14$, because the numerical value $\tfrac14$ is where the interesting
+threshold sits (Theorem~\ref{thm:phase-transition}) and it is clearer to have
+the threshold in the constant than hidden in the gauge.
+\end{convention}

@@ -1,0 +1,78 @@
+% pbalgebras.sty --- shared preamble for the PBAlgebras notes.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pbalgebras}[2026/09/16 PBAlgebras macros]
+
+\RequirePackage{amsmath,amssymb,amsthm,mathtools}
+\RequirePackage{booktabs}
+\RequirePackage[expansion=false]{microtype}
+\RequirePackage[hidelinks]{hyperref}
+
+% ---------------------------------------------------------------- theorem env
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+
+% ------------------------------------------------------------------- notation
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\alg}[1]{\mathcal{#1}}
+\newcommand{\Acal}{\mathcal{A}}
+
+\DeclareMathOperator{\spec}{\sigma}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\Zc}{Z}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Rea}{Re}
+\DeclareMathOperator{\tr}{tr}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\gauge}{D}
+\newcommand{\kap}{\kappa}
+\newcommand{\lam}{\lambda}
+
+% categories
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\PB}{\cat{PB}}
+\newcommand{\CommPB}{\cat{PB}_{\mathrm{comm}}}
+\newcommand{\CompHaus}{\cat{CompHaus}}
+\newcommand{\BanAlg}{\cat{BanAlg}_{\RR}}
+\newcommand{\Cstar}{\cat{C}^{*}}
+\newcommand{\RCstar}{\cat{C}^{*}_{\RR}}
+\newcommand{\op}{^{\mathrm{op}}}
+
+% axiom labels
+\newcommand{\SQ}{\textup{(SQ)}}
+\newcommand{\SR}{\textup{(SR)}}
+\newcommand{\PBone}{\textup{(PB1)}}
+\newcommand{\PBtwo}{\textup{(PB2)}}
+
+% status tags used in the ledger
+\newcommand{\statusproved}{\textsc{proved}}
+\newcommand{\statusnum}{\textsc{numerical}}
+\newcommand{\statusopen}{\textsc{open}}
+\newcommand{\statusconj}{\textsc{conjectural}}
+
+\endinput

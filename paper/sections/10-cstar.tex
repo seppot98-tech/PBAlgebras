@@ -1,0 +1,90 @@
+\section{Comparison with $C^*$-algebras}
+\label{sec:cstar}
+
+\subsection{The two embeddings of classical geometry}
+
+Both theories extend the same commutative picture, along different embeddings:
+\[
+  F_{\Cstar}=C(-,\CC),\qquad F_{\PB}=C(-,\RR),
+  \qquad\text{related by }\ \Lambda=(-)\otimes_\RR\CC,\quad \Lambda\circ F_{\PB}\cong F_{\Cstar}.
+\]
+Any comparison must be taken relative to $\Lambda$: as a \emph{real} algebra,
+$C(X,\CC)$ is not a PB-algebra, since it contains the central element $i$ and
+fails \eqref{ax:pb2} there (Example~\ref{ex:excluded}).
+
+\begin{definition}\label{def:intersection}
+Let $\mathcal{I}$ be the class of PB-algebras $A$ whose complexification
+$A_\CC$ carries a compatible $C^*$-structure --- equivalently, the real forms of
+$C^*$-algebras that satisfy \eqref{ax:pb1} and \eqref{ax:pb2}.
+\end{definition}
+
+$\mathcal{I}$ is populated: $M_2(\RR)$ and $\HH$ both complexify to $M_2(\CC)$,
+and both are PB-algebras with constant $\tfrac14$ (Examples~\ref{ex:H},
+\ref{ex:M2}).  Note that these are two different real forms of one
+$C^*$-algebra, so $\Lambda$ is far from injective on objects.  The relationship
+between the theories is a span
+\[
+  \PB\;\hookleftarrow\;\mathcal{I}\;\longrightarrow\;\Cstar,
+\]
+and not an inclusion in either direction: Proposition~\ref{prop:T2} gives
+PB-objects outside $\mathcal{I}$ (non-central radical, impossible in a
+semisimple $C^*$-algebra), and Proposition~\ref{prop:chirality} gives
+$C^*$-algebras outside the image (no real form at all).
+
+\subsection{Forgetting the involution}
+
+\begin{proposition}\label{prop:U-faithful}
+Let $U$ be the forgetful assignment taking a real form of a $C^*$-algebra, with
+its $*$-homomorphisms, to the underlying PB-algebra with its PB-morphisms.
+Then $U$ is faithful and bijective on objects but \emph{not full}: there are
+PB-morphisms between objects of $\mathcal{I}$ that are not induced by
+$*$-homomorphisms.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Faithfulness and bijectivity on objects are immediate.  For fullness, take
+$A=M_2(\RR)$ and $g\in GL_2(\RR)$ with $\Ad_g$ isometric and gauge-preserving
+but $g$ not a scalar multiple of an orthogonal matrix; then $\Ad_g$ is a
+PB-automorphism of $A$ whose complexification is not a $*$-automorphism of
+$M_2(\CC)$, since $*$-automorphisms of $M_2(\CC)$ are exactly the $\Ad_v$ with
+$v$ unitary.
+\end{proof}
+
+\begin{remark}
+So on the intersection the PB-theory has \emph{strictly more} morphisms off the
+centre, and $\mathcal{I}$ carries two different subobject lattices:
+$*$-subalgebras on one side, saturated subalgebras
+(Definition~\ref{def:saturated}) on the other.  $U$ is an equivalence exactly on
+the commutative floor, where the gauge vanishes identically and every unital
+homomorphism is legal.  $\mathcal{I}$ is a span-vertex, not a subcategory of
+either theory in a way that respects both structures --- and in particular there
+is no reason for it to be closed under PB-quotients.
+\end{remark}
+
+\subsection{A uniform bound on the $C^*$ side}
+
+The examples suggest something stronger than membership case by case.
+
+\begin{conjecture}[Uniform bound]\label{conj:cstar-uniform}
+Every real $C^*$-algebra $A$ --- a real form of a $C^*$-algebra with its
+inherited norm --- satisfies \eqref{ax:pb1} with gauge $\gauge_1$ and constant
+$C=\tfrac14$.  Equivalently, by Proposition~\ref{prop:real-stampfli},
+\[
+  \norm{a}^2-\norm{a^2}\;\le\;\dist(a,\RR1)^2\qquad\text{for all }a .
+\]
+\end{conjecture}
+
+\begin{remark}
+The evidence is as follows.  Equality holds at every square-zero element: if
+$a^2=0$ and $\norm{a}=1$ then the left side is $1$, and writing $a$ in its
+block form shows $\norm{a-t1}\ge\norm{a}$ for every $t$, so the right side is
+$1$ as well.  The inequality also holds at every normal element, where the left
+side vanishes.  Numerically it survives a search over $M_n(\RR)$ for
+$n\le4$ (\S\ref{sec:status}).  A proof would be valuable well beyond this
+subject: it says that failure of the square property is controlled by distance
+to the scalars, uniformly, with the sharp constant attained on nilpotents.
+Note that \eqref{ax:pb2} is a genuinely separate matter and is \emph{not} implied:
+$A=\CC$ is a real $C^*$-algebra failing \eqref{ax:pb2}, and so is $M_2(\CC)$
+viewed as a real algebra, whose centre $\CC$ is not of the form $C(X,\RR)$.  The
+gate is always the centre.
+\end{remark}

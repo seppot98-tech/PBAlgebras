@@ -1,0 +1,137 @@
+\section{Commutator gauges}
+\label{sec:gauges}
+
+\begin{definition}[Gauges]\label{def:gauges}
+For $a\in A$ and $q\in[1,\infty]$ set
+\[
+  \gauge_1(a)=\sup_{\norm{z}\le1}\norm{[a,z]}^2=\norm{\ad_a}^2,
+  \qquad
+  \gauge_q(a)=\sup_{\norm{z}\le1}\norm{[a,z]^q}^{2/q},
+  \qquad
+  \gauge_\infty(a)=\sup_{\norm{z}\le1}r\bigl([a,z]\bigr)^2 .
+\]
+A \emph{gauge} means one of these.  The value $\gauge(a)$ is the
+\emph{commutator budget} of $a$.
+\end{definition}
+
+\begin{lemma}[Elementary properties]\label{lem:gauge-basic}
+Let $\gauge$ be any of the gauges.  For all $a\in A$ and $t,\lambda\in\RR$:
+\begin{enumerate}
+\item[(a)] \emph{(Homogeneity)} $\gauge(ta)=t^2\gauge(a)$.
+\item[(b)] \emph{(Translation invariance)} $\gauge(a+\lambda1)=\gauge(a)$.
+\item[(c)] \emph{(Universal bound)} $\gauge(a)\le4\norm{a}^2$, and more
+  precisely $\gauge(a)\le4\dist(a,\Zc(A))^2$.
+\item[(d)] \emph{(Ordering)} $\gauge_\infty(a)\le\gauge_q(a)\le\gauge_1(a)$ for
+  every $q\in[1,\infty)$.
+\item[(e)] \emph{(Vanishing locus)} $\gauge_1(a)=0$ if and only if
+  $a\in\Zc(A)$.  For $q\ge2$ and for $q=\infty$ one has only the implication
+  $a\in\Zc(A)\Rightarrow\gauge(a)=0$, and the converse fails.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) and (b) are immediate from $\ad_{a+\lambda1}=\ad_a$ and bilinearity.
+For (c), if $c\in\Zc(A)$ then $[a,z]=[a-c,z]$, so
+$\norm{[a,z]}\le2\norm{a-c}\norm{z}$; submultiplicativity gives
+$\norm{[a,z]^q}\le\norm{[a,z]}^q$, and raising to the power $2/q$ cancels the
+exponent, so the bound $4\dist(a,\Zc(A))^2$ is uniform in $q$; for
+$\gauge_\infty$ use $r\le\norm{\cdot}$.  (d) is $r(b)\le\norm{b^q}^{1/q}\le\norm{b}$.
+For (e), $\gauge_1(a)=0$ says $\ad_a=0$, i.e.\ $a\in\Zc(A)$.  For finite
+$q\ge2$, $\gauge_q(a)=0$ says only that $[a,z]^q=0$ for every $z$, and for
+$q=\infty$ only that every $[a,z]$ is quasinilpotent; the element
+$a=\operatorname{diag}(1,-1)\in T_2(\RR)$ is not central, yet every commutator
+$[a,z]$ with $z\in T_2(\RR)$ is a multiple of $E_{12}$ and hence square-zero, so
+$\gauge_q(a)=\gauge_\infty(a)=0$ for all $q\ge2$.
+\end{proof}
+
+\begin{remark}
+The exponent $2$ is forced: both sides of the axioms of \S\ref{sec:axioms} must
+be homogeneous of degree $2$ in $a$ for the resulting class to be closed under
+rescaling of elements, and $\norm{a}^2-\norm{a^2}$ has degree $2$.
+\end{remark}
+
+\subsection{The gauge as a distance to the centre}
+
+Part (c) of Lemma~\ref{lem:gauge-basic} bounds $\gauge_1$ by the distance to the
+centre.  In the two basic noncommutative examples the bound is an equality, and
+this is what makes the constants of \S\ref{sec:axioms} computable.
+
+\begin{proposition}[Real Stampfli identity]\label{prop:real-stampfli}
+For $A=M_n(\RR)$ with the operator norm and for $A=\HH$,
+\[
+  \gauge_1(a)=4\dist(a,\RR1)^2 .
+\]
+\statusnum\ for $M_n(\RR)$, $n\le4$, to a relative tolerance of $10^{-6}$;
+\statusproved\ for $\HH$.  The complex statement for $B(H)$ is
+Theorem~\ref{thm:stampfli}.
+\end{proposition}
+
+\begin{proof}[Proof for $\HH$]
+Write $a=\alpha+v$ with $\alpha\in\RR$ and $v$ purely imaginary, so
+$\dist(a,\RR1)=\abs{v}$.  Then $[a,z]=[v,z]$, and for $z$ a unit quaternion
+orthogonal to $v$ one computes $[v,z]=2vz$, of modulus $2\abs{v}$; since
+$\norm{[v,z]}\le2\abs{v}\norm{z}$ always, the supremum is $2\abs{v}$.
+\end{proof}
+
+\begin{proposition}[The identity fails on triangular algebras]
+\label{prop:stampfli-fails-T}
+For $A=T_n(\RR)$, $n\ge2$, the inequality $\gauge_1(a)\le4\dist(a,\RR1)^2$ is
+strict for generic $a$.  \statusnum
+\end{proposition}
+
+\noindent
+The reason is structural rather than numerical: $\gauge_1$ is a supremum over
+$z$ \emph{in the algebra}, and $T_n(\RR)$ has a much smaller supply of unit
+elements than $M_n(\RR)$ does.  This ambient-referencing character of the gauge
+is the source of every difficulty in \S\ref{sec:categorical}: an equation can
+delete the very elements $z$ that realise a budget.  We return to this in
+Remark~\ref{rem:ambient-referencing}.
+
+\begin{example}[The fundamental computation]\label{ex:E12}
+Let $E_{12}\in M_2(\RR)$ be the matrix unit and $u=\operatorname{diag}(1,-1)$.
+Then $\norm{E_{12}}=1$, $E_{12}^2=0$, and
+$[E_{12},u]=-2E_{12}$, so
+\[
+  \gauge_1(E_{12})=4,\qquad \gauge_\infty(E_{12})=1,\qquad
+  \gauge_q(E_{12})=1\ \ (q\ge2).
+\]
+The value $\gauge_1(E_{12})=4$ is the universal bound of
+Lemma~\ref{lem:gauge-basic}(c), attained.  The drop at $q\ge2$ happens because
+the budget-realising commutator $-2E_{12}$ is nilpotent and is therefore
+annihilated by the $q$-th power; the supremum is then realised instead by
+$[E_{12},E_{21}]=E_{11}-E_{22}$, of spectral radius $1$.  The same element
+$E_{12}$, viewed inside $T_2(\RR)$, still has $\gauge_1=4$ --- the witness $u$
+is upper triangular --- but $\gauge_\infty(E_{12})=0$ there, since every
+commutator of upper-triangular matrices is strictly upper triangular, hence
+nilpotent.  All four values are confirmed numerically in
+\texttt{verify/tests/test\_gauges.py}.
+\end{example}
+
+\begin{remark}[$\gauge_1$ versus $\gauge_\infty$: discrimination against closure]
+\label{rem:gauge-tradeoff}
+Example~\ref{ex:E12} already contains the central trade-off of the whole
+construction.  The spectral gauge $\gauge_\infty$ is \emph{discriminating}: it
+sees only non-quasinilpotent commutators, so it distinguishes $M_2(\RR)$ from
+$T_2(\RR)$ and reproduces, on the nose, the $C^*$-style exclusion of the
+radical.  But it vanishes on whole directions, and quotients can manufacture
+such vanishing, so a $\gauge_\infty$-class has no reason to be closed under
+quotients (Proposition~\ref{prop:dinf-fragile}).  The norm gauge $\gauge_1$ is
+\emph{closure-friendly}: it vanishes only on the centre, which is exactly what
+makes the base functorial (\S\ref{sec:base}), but it cannot distinguish
+$T_2(\RR)$ from $M_2(\RR)$ by any choice of constant
+(Proposition~\ref{prop:no-constant-separates}).  Everything downstream depends
+on which of the two one is willing to give up.  We develop the theory for
+$\gauge_1$, because functoriality of the base is the property that makes $\PB$ a
+category worth having.
+\end{remark}
+
+\begin{warning}\label{warn:vanishing}
+The earlier notes assert that every $\gauge_q$ ``vanishes exactly on directions
+commuting with all of $A$''.  Lemma~\ref{lem:gauge-basic}(e) shows this is true
+only for $q=1$: already $\operatorname{diag}(1,-1)\in T_2(\RR)$ is a
+non-central element with $\gauge_q=0$ for every $q\ge2$.  The consequences are
+not cosmetic.  It is precisely the equality $\{\gauge_1=0\}=\Zc(A)$ that makes
+morphisms preserve centres (Lemma~\ref{lem:centre-preserved}) and hence makes
+the classical base a functor; for $q\ge2$ that argument breaks, and with it the
+geometric content of \S\ref{sec:base}.
+\end{warning}

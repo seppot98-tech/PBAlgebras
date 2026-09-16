@@ -1,0 +1,193 @@
+\section{Examples and obstructions}
+\label{sec:examples}
+
+Throughout this section the gauge is $\gauge_1$ and, unless stated otherwise,
+$C=\tfrac14$.
+
+\begin{example}[The commutative objects]
+$C(X,\RR)$ for $X$ compact Hausdorff.  Here $\gauge_1\equiv0$, both axioms hold
+without slack, $\kap=\lam=0$, and $X_A=X$.
+\end{example}
+
+\begin{example}[The quaternions]\label{ex:H}
+$\HH$ with its modulus.  The norm is multiplicative, so \eqref{ax:sq} holds
+exactly and $\kap(\HH)=0$.  For \eqref{ax:pb2} the extremal element is a purely
+imaginary unit $v$: then $v^2=-1$, so
+$\bigl\lVert\norm{v^2}1-v^2\bigr\rVert=2$ against $\norm{v^2}=1$, a defect of
+$1$, and $\gauge_1(v)=4$ by Proposition~\ref{prop:real-stampfli}.  Hence
+$\lam(\HH)=\tfrac14$, attained.  The base is a point: $\HH$ is pointless.
+\end{example}
+
+\begin{example}[The $2\times2$ matrices]\label{ex:M2}
+$M_2(\RR)$ with the operator norm.  Both constants equal $\tfrac14$ and both are
+attained: $\kap$ at $E_{12}$ (Example~\ref{ex:E12}), and $\lam$ at the rotation
+$J=\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$, for which $J^2=-1$ gives a
+reality defect of $1$ against $\gauge_1(J)=4$.  The base is a point.
+\end{example}
+
+\begin{example}[The excluded ones]\label{ex:excluded}
+$\CC$ as a real algebra and $\RR[\varepsilon]/(\varepsilon^2)$ are both
+commutative, so both have zero budget everywhere, and both have a nonzero
+defect: $\CC$ fails \eqref{ax:sr} at $i$, and $\RR[\varepsilon]$ fails
+\eqref{ax:sq} at $\varepsilon$.  Neither is a PB-algebra for any constant.  This
+pair is the reason the theory is worth stating: it admits noncommutative
+``points'' ($M_2(\RR)$, $\HH$) while refusing both complex directions and
+infinitesimal ones, and it refuses them for the same reason --- an unfunded
+defect.
+\end{example}
+
+\input{generated/constants}
+
+\subsection{The two obstructions}
+
+The theory is transverse to the $C^*$ one, and each side has objects the other
+does not see.
+
+\subsubsection*{Excess on the PB side: non-central radical}
+
+\begin{proposition}\label{prop:T2}
+$T_2(\RR)$, the real upper-triangular $2\times2$ matrices with the operator
+norm, has $\rad(T_2(\RR))=\RR E_{12}\ne0$, so its complexification is not a
+$C^*$-algebra --- $C^*$-algebras are semisimple.  Its radical is
+\emph{non-central}: $[E_{12},\operatorname{diag}(1,-1)]=-2E_{12}\ne0$, so
+$\gauge_1(E_{12})=4>0$ and the square defect of $E_{12}$ is funded.
+\end{proposition}
+
+Whether $T_2(\RR)$ is an object of $\PB^{1/4}_{\gauge_1}$ --- i.e.\ whether its
+funded defect stays within the same constant that $M_2(\RR)$ needs --- is a
+quantitative question, settled numerically in the table above and discussed in
+\S\ref{sec:status}.  It matters, because $T_2(\RR)$ is the one elementary
+finite-dimensional witness for $\PB\not\subseteq\Cstar$, and because it is the
+cone that answers Question~\ref{q:legal-cone}.
+
+\subsubsection*{Excess on the $C^*$ side: chirality}
+
+\begin{proposition}\label{prop:chirality}
+A $C^*$-algebra $B$ with $B\not\cong\bar B$ admits no real form, hence arises
+from no PB-algebra by complexification.  Such $B$ exist, but are necessarily
+infinite-dimensional: every finite-dimensional $C^*$-algebra
+$\bigoplus_iM_{n_i}(\CC)$ has the real form $\bigoplus_iM_{n_i}(\RR)$.
+\end{proposition}
+
+\begin{remark}[Physics]\label{rem:physics}
+The structure that actually occurs in physical models is the presence of a
+real or quaternionic form: antiunitary time reversal, Dyson's threefold way,
+the tenfold way of Altland--Zirnbauer.  That is $B\cong\bar B$ together with a
+chosen conjugation --- exactly the PB-side datum.  Genuinely chiral
+$B\not\cong\bar B$ arises as a topological invariant of \emph{families} and not
+as the observable algebra of a single system: $B(H)$, the CAR and CCR algebras,
+AF and UHF algebras and the type III factors all satisfy $B\cong\bar B$.  So the
+boundary between the two theories runs parallel to the physical boundary
+between systems with and without a real structure.  We record this as
+motivation, not as a theorem.
+\end{remark}
+
+\subsection{The critical constant of $T_2(\RR)$}
+\label{sec:T2-constant}
+
+The earlier notes assert that $\kap_{\gauge_1}(T_2(\RR))=\kap_{\gauge_1}(M_2(\RR))=\tfrac14$,
+both attained at the shared element $E_{12}$ with the shared witness
+$z=\operatorname{diag}(1,-1)$, and conclude that \emph{no} choice of constant
+separates the two algebras.  That conclusion is false.  The extremiser of
+$T_2(\RR)$ is not $E_{12}$, and the critical constant is strictly larger than
+$\tfrac14$.
+
+The computation is exact, and rests on the fact that commutators in $T_2(\RR)$
+span a line.
+
+\begin{lemma}[Dual certificate]\label{lem:dual-certificate}
+Let $x=\begin{psmallmatrix}\alpha&\gamma\\0&\beta\end{psmallmatrix}$ and
+$z=\begin{psmallmatrix}p&c\\0&q\end{psmallmatrix}$ lie in $T_2(\RR)$.  Then
+$[x,z]=L(z)E_{12}$ with $L(z)=c(\alpha-\beta)+\gamma(q-p)$, and for every
+$g\in\RR$,
+\[
+  \gauge_1^{T_2}(x)\;\le\;\bigl\lVert G_g\bigr\rVert_*^2,
+  \qquad
+  G_g=\begin{pmatrix}-\gamma&\alpha-\beta\\ g&\gamma\end{pmatrix},
+\]
+where $\norm{\cdot}_*$ is the nuclear norm (the sum of the singular values).
+\end{lemma}
+
+\begin{proof}
+The formula for $[x,z]$ is a direct computation.  Since $z_{21}=0$, we have
+$L(z)=\langle G_g,z\rangle$ in the trace pairing for \emph{every} value of the
+free entry $g$.  Duality of the nuclear and operator norms gives
+$\abs{\langle G_g,z\rangle}\le\norm{G_g}_*\norm{z}$, so
+$\norm{[x,z]}=\abs{L(z)}\le\norm{G_g}_*$ whenever $\norm{z}\le1$.  Take the
+supremum over $z$ and then the square.
+\end{proof}
+
+\begin{proposition}[$T_2(\RR)$ is not an object at $C=\tfrac14$]
+\label{prop:T2-constant}
+Let
+\[
+  \kap^*\;=\;\frac{4y(1-y)}{(1+y)^4}\bigg|_{\,y=\frac{5-\sqrt{17}}{4}}
+  \;=\;\frac{128\,(3\sqrt{17}-11)}{15112-3528\sqrt{17}}
+  \;=\;0.3098421747\ldots
+\]
+Then $\kap_{\gauge_1}(T_2(\RR))\ge\kap^*>\tfrac14$.  Consequently
+$T_2(\RR)\notin\PB^{1/4}_{\gauge_1}$, and every constant
+$C\in[\tfrac14,\kap^*)$ admits $M_2(\RR)$ while excluding $T_2(\RR)$.
+\end{proposition}
+
+\begin{proof}
+We exhibit a one-parameter family and bound its gauge from above.
+
+For $c\in[0,1]$ put
+$x_c=\begin{psmallmatrix}c&1-c^2\\0&-c\end{psmallmatrix}$.  Then
+$x_c^\top x_c$ has determinant $\det(x_c)^2=c^4$ and trace $2c^2+(1-c^2)^2$, so
+its characteristic polynomial is $\lambda^2-\bigl(2c^2+(1-c^2)^2\bigr)\lambda+c^4$,
+which has $\lambda=1$ as a root; the other root is $c^4\le1$.  Hence
+$\norm{x_c}=1$.  Also $x_c^2=c^2\cdot1$, so
+\[
+  \norm{x_c}^2-\norm{x_c^2}=1-c^2 .
+\]
+Apply Lemma~\ref{lem:dual-certificate} with $\alpha-\beta=2c$ and
+$\gamma=1-c^2$.  Write $u=1-c^2$ and $v=2c$ and choose $g=-u^2/v$ (for $c>0$),
+which makes
+$G_g=\begin{psmallmatrix}-u&v\\-u^2/v&u\end{psmallmatrix}$ have determinant
+$-u^2-v\cdot(-u^2/v)=0$.  A rank-one matrix has nuclear norm equal to its
+Frobenius norm, so
+\[
+  \norm{G_g}_*^2=\norm{G_g}_F^2=2u^2+v^2+\frac{u^4}{v^2}
+  =\left(\frac{u^2+v^2}{v}\right)^{2}
+  =\left(\frac{(1-c^2)^2+4c^2}{2c}\right)^{2}
+  =\left(\frac{(1+c^2)^2}{2c}\right)^{2},
+\]
+using $(1-c^2)^2+4c^2=(1+c^2)^2$.  Therefore
+\[
+  \gauge_1^{T_2}(x_c)\;\le\;\frac{(1+c^2)^4}{4c^2},
+  \qquad\text{hence}\qquad
+  \kap_{\gauge_1}(T_2(\RR))\;\ge\;\frac{(1-c^2)\,4c^2}{(1+c^2)^4} .
+\]
+Writing $y=c^2$ and maximising $f(y)=4y(1-y)/(1+y)^4$ on $(0,1)$: the
+stationarity condition $(1-2y)(1+y)-4y(1-y)=0$ reduces to $2y^2-5y+1=0$, whose
+root in $(0,1)$ is $y=(5-\sqrt{17})/4=0.2192235\ldots$, giving
+$f(y)=\kap^*$.  Finally $\kap^*>\tfrac14$ by direct evaluation.
+\end{proof}
+
+\begin{remark}[What went wrong in the earlier argument]
+\label{rem:T2-correction}
+The earlier notes located the extremiser of $T_2(\RR)$ at $E_{12}$, by analogy
+with $M_2(\RR)$ and on the grounds that ``scalar diagonal minimises $\gauge$ for
+fixed nilpotent content''.  The optimum is instead at the traceless element
+$x_c$ with $c=\sqrt{(5-\sqrt{17})/4}=0.46821\ldots$, which is neither nilpotent
+nor a perturbation of one: it has $x_c^2=c^2\cdot1$, a square defect of
+$1-c^2=0.7808\ldots$, and a budget of only $2.5199\ldots$ rather than the $4$
+available at $E_{12}$.  The trade is that moving away from $E_{12}$ costs some
+defect but costs \emph{more} budget, because the two diagonal entries pull the
+optimal test element in competing directions.  This is exactly the sort of claim
+that a numerical sweep settles and an analogy does not.
+\end{remark}
+
+\begin{remark}[Numerical corroboration]
+An independent search over all of $T_2(\RR)$, with the gauge computed by the
+convex dual of Lemma~\ref{lem:dual-certificate}, finds
+$\kap_{\gauge_1}(T_2(\RR))=0.30984217\ldots$ and
+$\lam_{\gauge_1}(T_2(\RR))=0.11294508\ldots$, so that
+$C_{\gauge_1}(T_2(\RR))=\kap^*$ and the bound of
+Proposition~\ref{prop:T2-constant} is attained.  That the supremum over all of
+$T_2(\RR)$ is attained on the traceless slice is \statusnum; the inequality
+$\kap\ge\kap^*$, which is what separates $T_2(\RR)$ from $M_2(\RR)$, is
+\statusproved.  See \texttt{verify/experiments/t2\_exact.py}.
+\end{remark}

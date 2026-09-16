@@ -1,0 +1,64 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{pbalgebras}
+
+\title{Perfectly Bounded Real Banach Algebras\\
+\large An involution-free, square-property extension of Gelfand duality}
+\author{S. Pottel\thanks{With computational and editorial assistance from Claude
+(Anthropic). Numerical claims are reproducible from the \texttt{verify/} package
+of the accompanying repository.}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study a class of unital real Banach algebras defined by two elementary
+conditions --- a \emph{square property} $\norm{a^2}=\norm{a}^2$ and a
+\emph{spectral reality} condition --- each relaxed by a \emph{commutator budget}
+that vanishes on the centre.  On commutative algebras the unrelaxed conditions
+characterise $C(X,\RR)$ for $X$ compact Hausdorff, and commutativity itself is a
+theorem rather than a hypothesis; the relaxed conditions admit genuinely
+noncommutative objects such as $M_2(\RR)$, $\HH$ and $T_2(\RR)$ while continuing
+to exclude nilpotent thickenings such as $\RR[\varepsilon]/(\varepsilon^2)$.  The
+resulting category $\PB$ is explicitly \emph{not} aimed at $C^*$-algebras: it
+organises noncommutative geometry by normality (an eigenvalue radius) rather
+than by an involution (a singular-value radius), and the two theories meet only
+on the real forms of $C^*$-algebras.
+
+Our main structural results are: every object carries a canonical compact
+Hausdorff \emph{base} extracted from its centre; the morphism law forces
+morphisms to preserve centres, so that the base is \emph{functorial}; and the
+commutative part is a \emph{coreflective} subcategory of $\PB$ equivalent to
+$\CompHaus\op$, exhibiting every object as a bundle of ``noncommutative points''
+over a classical base.  We prove that the constant $C=\tfrac14$ is a phase
+transition --- below it the theory is rigid and semisimple, at it the matrix and
+triangular examples enter simultaneously --- and we settle, in the affirmative,
+an open question from earlier notes about equalizer cones, showing that the
+scalars are \emph{not} the equalizer of $\id$ and $\Ad_{\mathrm{diag}(1,-1)}$ on
+$M_2(\RR)$.  Throughout, each statement is tagged \statusproved,
+\statusnum, \statusconj\ or \statusopen, and the numerical tags are backed by a
+reproducible verification package.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/00-introduction}
+\input{sections/01-preliminaries}
+\input{sections/02-rigid-core}
+\input{sections/03-gauges}
+\input{sections/04-axioms}
+\input{sections/05-consequences}
+\input{sections/06-morphisms}
+\input{sections/07-base-functor}
+\input{sections/08-examples}
+\input{sections/09-categorical}
+\input{sections/10-cstar}
+\input{sections/11-visibility}
+\input{sections/12-status}
+\input{sections/13-open-problems}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

@@ -1,0 +1,139 @@
+\section{The rigid commutative core}
+\label{sec:rigid}
+
+\begin{definition}[The rigid axioms]\label{def:rigid}
+An algebra $A$ satisfies
+\begin{align}
+  \tag{SQ}\label{ax:sq}
+  &\norm{a^2}=\norm{a}^2 &&\text{for all } a\in A, \\
+  \tag{SR}\label{ax:sr}
+  &\bigl\lVert\,\norm{a^2}1-a^2\,\bigr\rVert\le\norm{a^2} &&\text{for all } a\in A .
+\end{align}
+We call \eqref{ax:sq} the \emph{square property} and \eqref{ax:sr} the
+\emph{spectral reality condition}.
+\end{definition}
+
+\begin{remark}[On the names]
+\eqref{ax:sr} appears in the earlier notes as ``(C2)''.  The name used here
+records what it does: on a commutative algebra it is exactly the statement that
+no character takes a non-real value (Lemma~\ref{lem:sr-characters}).  For
+$A=C(X,\RR)$ both axioms are immediate, since $a^2\ge0$ and hence
+$0\le\norm{a^2}-a^2(x)\le\norm{a^2}$ pointwise.
+\end{remark}
+
+\begin{lemma}[The square property is a spectral radius condition]
+\label{lem:sq-radius}
+$A$ satisfies \eqref{ax:sq} if and only if $r(a)=\norm{a}$ for all $a\in A$.  In
+that case $A$ has no nonzero quasinilpotent elements; in particular
+$\rad(A)=0$ and $A$ is semisimple.
+\end{lemma}
+
+\begin{proof}
+If \eqref{ax:sq} holds then $\norm{a^{2^n}}=\norm{a}^{2^n}$ by induction, so
+$r(a)=\lim_n\norm{a^{2^n}}^{1/2^n}=\norm{a}$.  Conversely if $r=\norm{\cdot}$
+then $\norm{a}^2=r(a)^2=r(a^2)=\norm{a^2}$, using $\spec(a^2)=\spec(a)^2$.  A
+quasinilpotent has $r=0$, hence norm $0$; and $\rad(A)$ consists of
+quasinilpotents.
+\end{proof}
+
+\begin{lemma}[What \eqref{ax:sr} says about characters]\label{lem:sr-characters}
+Let $A$ satisfy \eqref{ax:sr} and let $\chi$ be a character of $A$.  Then
+$\chi(a)\in\RR$ for every $a\in A$.
+\end{lemma}
+
+\begin{proof}
+Write $\chi(a)=\alpha+i\beta$ with $\alpha,\beta\in\RR$ and put
+$b=a-\alpha1\in A$, so that $\chi(b)=i\beta$ and $\chi(b^2)=-\beta^2$.  Applying
+$\chi$ to $\norm{b^2}1-b^2$ and using $\abs{\chi(x)}\le\norm{x}$,
+\[
+  \bigl\lVert\,\norm{b^2}1-b^2\,\bigr\rVert
+  \;\ge\;\bigl\lvert\,\norm{b^2}+\beta^2\,\bigr\rvert
+  \;=\;\norm{b^2}+\beta^2 .
+\]
+By \eqref{ax:sr} applied to $b$ the left side is at most $\norm{b^2}$, so
+$\beta^2\le0$ and $\beta=0$.
+\end{proof}
+
+\begin{remark}
+The translation $a\rightsquigarrow a-\alpha1$ is the whole trick, and it is the
+step that the earlier notes performed only in the special case $\chi(a)=i$.  It
+matters that \eqref{ax:sr} is assumed for \emph{all} elements; the condition at
+a single $a$ says much less.
+\end{remark}
+
+\begin{theorem}[Real Gelfand duality]\label{thm:gelfand}
+For a commutative algebra $A$ the following are equivalent.
+\begin{enumerate}
+\item[(i)] $A$ satisfies \eqref{ax:sq} and \eqref{ax:sr}.
+\item[(ii)] $A\cong C(X,\RR)$ isometrically and unitally, for some compact
+  Hausdorff $X$.
+\end{enumerate}
+Moreover $X$ is then homeomorphic to the character space of $A$, and
+$C(-,\RR)$ and $\Spec$ are quasi-inverse contravariant equivalences between
+$\CompHaus$ and the category of such algebras.
+\end{theorem}
+
+\begin{proof}
+(ii)$\Rightarrow$(i) is the computation in the preceding remark.
+
+(i)$\Rightarrow$(ii).  By Lemma~\ref{lem:sq-radius}, $r=\norm{\cdot}$ and
+$\rad(A)=0$, so the Gelfand transform $\Gamma$ is injective and isometric onto
+its image.  By Lemma~\ref{lem:sr-characters} every character is real-valued, so
+the conjugation on $\Omega(A)$ is trivial and $\Gamma(A)$ is a closed unital
+subalgebra of $C(X,\RR)$, where $X=\Omega(A)$.  Characters separate the points
+of $X$ by definition, so $\Gamma(A)=C(X,\RR)$ by
+Theorem~\ref{thm:stone-weierstrass}.  For the last clause, the characters of
+$C(X,\RR)$ are the point evaluations, and a unital homomorphism
+$C(X,\RR)\to C(Y,\RR)$ is $\varphi^*$ for a unique continuous
+$\varphi:Y\to X$.
+\end{proof}
+
+\begin{theorem}[Commutativity is a theorem, not a hypothesis]
+\label{thm:commutativity-forced}
+Let $A$ be an algebra, not assumed commutative, satisfying \eqref{ax:sq} and
+\eqref{ax:sr}.  Then $A$ is commutative, hence $A\cong C(X,\RR)$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:sq-radius}, $r=\norm{\cdot}$ on $A$; in particular $r$ is
+both subadditive and submultiplicative on $A$, and $A$ has no nonzero
+quasinilpotent.  Granting the real-scalar form of Theorem~\ref{thm:hz} --- that
+a real Banach algebra with submultiplicative spectral radius has commutative
+quotient modulo its radical, see \cite[Ch.~3]{KulkarniLimaye} --- we get
+$[x,y]\in\rad(A)$ for all $x,y\in A$.  Elements of the radical are
+quasinilpotent, so $\norm{[x,y]}=r([x,y])=0$ and $A$ is commutative.  Now apply
+Theorem~\ref{thm:gelfand}.
+\end{proof}
+
+\begin{remark}[Status of Theorem~\ref{thm:commutativity-forced}]
+\label{rem:hz-status}
+The proof is complete except that it invokes a real-scalar version of
+Theorem~\ref{thm:hz}.  Over $\CC$ the statement is classical and the deduction
+is immediate: a complex Banach algebra with $\norm{a^2}=\norm{a}^2$ throughout
+has $r=\norm{\cdot}$, hence submultiplicative $r$ and zero radical, hence is
+commutative and is a uniform algebra.  Over $\RR$ one wants either the cited
+real form, or a reduction to the complex case; the obstacle to the naive
+reduction is that $r=\norm{\cdot}$ on $A$ does not by itself give
+$r=\norm{\cdot}$ on $A_\CC$.  We flag this in the ledger
+(\S\ref{sec:status}) as \statusproved\ modulo the citation, and record closing
+the gap by hand as Problem~\ref{prob:real-hz}.
+\end{remark}
+
+\begin{remark}[The finite-dimensional shadow]\label{rem:fd-shadow}
+It is worth seeing the mechanism on a semisimple real algebra
+$A=\prod_i M_{n_i}(D_i)$ with $D_i\in\{\RR,\CC,\HH\}$.  The square property
+kills every block with $n_i\ge2$, because such a block contains a nonzero
+square-zero element, which \eqref{ax:sq} forces to vanish.  Spectral reality
+kills the $\CC$ and $\HH$ directions, because in $\CC$ the element $i$ has
+$i^2=-1$ and $\norm{\,\norm{i^2}1-i^2}=2>1=\norm{i^2}$.  What survives is
+$\RR^j=C(\{1,\dots,j\},\RR)$.  Theorem~\ref{thm:commutativity-forced} is the
+infinite-dimensional form of this stripping.
+\end{remark}
+
+\begin{remark}[Why a relaxation is needed at all]
+Theorem~\ref{thm:commutativity-forced} is the obstruction that the rest of these
+notes works around.  Any theory that keeps \eqref{ax:sq} and \eqref{ax:sr} on
+the nose is the classical theory; a noncommutative extension must pay for
+noncommutativity somewhere, and the proposal is to pay for it with a quantity
+that is invisible on the centre.
+\end{remark}

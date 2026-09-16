@@ -1,0 +1,110 @@
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The fork}
+
+Gelfand duality identifies commutative unital $C^*$-algebras with compact
+Hausdorff spaces, and noncommutative geometry proceeds by dropping
+commutativity while keeping the involution.  The $C^*$-identity
+$\norm{a}^2=\norm{a^*a}$ makes the norm a \emph{singular-value} radius: it is
+computed from $a$ and $a^*$ together, and it is insensitive to how badly $a$
+fails to be normal.
+
+There is a second, less travelled road out of the commutative case.  On a
+commutative $C^*$-algebra one equally has
+\begin{equation}
+  \norm{a^2}=\norm{a}^2,
+  \label{eq:sq-intro}
+\end{equation}
+and \eqref{eq:sq-intro} makes the norm an \emph{eigenvalue} radius: it says
+exactly that $\norm{a}$ equals the spectral radius $r(a)$.  On a $C^*$-algebra
+the two coincide precisely on the normal elements.  Dropping commutativity while
+keeping \eqref{eq:sq-intro} --- rather than keeping the involution --- is the
+fork taken in these notes.
+
+Taken literally the fork is a dead end: \eqref{eq:sq-intro} together with a
+spectral reality condition forces commutativity outright
+(Theorem~\ref{thm:commutativity-forced}), so the ``noncommutative'' theory has
+no objects.  The proposal studied here is to relax both conditions by a
+\emph{commutator budget}: a quantity $\gauge(a)$, homogeneous of degree $2$,
+which vanishes exactly on the centre and therefore leaves the commutative theory
+untouched, but which funds a controlled failure of \eqref{eq:sq-intro} off the
+centre.  The resulting objects we call \emph{perfectly bounded algebras}, or
+\emph{PB-algebras}.
+
+\subsection{What the budget buys}
+
+The relaxed axioms read
+\[
+  \norm{a}^2-\norm{a^2}\le C\,\gauge(a),
+  \qquad
+  \bigl\lVert\,\norm{a^2}1-a^2\,\bigr\rVert\le\norm{a^2}+C\,\gauge(a),
+\]
+and they are genuinely two-parameter: the first measures \emph{approximate
+normality}, the second \emph{approximate spectral reality}.  With the natural
+gauge $\gauge_1(a)=\norm{\ad_a}^2$ and the constant $C=\tfrac14$ the class
+contains $C(X,\RR)$, the quaternions $\HH$, the matrix algebras $M_n(\RR)$ and
+the upper-triangular algebras $T_n(\RR)$, and it excludes
+$\RR[\varepsilon]/(\varepsilon^2)$ --- the budget is zero on a commutative
+algebra, so a nilpotent thickening cannot pay for its square defect.  The
+theory therefore admits noncommutative points while refusing infinitesimal ones.
+
+\subsection{Results}
+
+The notes that this document supersedes recorded a collection of axioms,
+examples and half-settled categorical questions.  The present treatment
+reorganises that material around three structural theorems and corrects two
+errors.
+
+\begin{itemize}
+\item \textbf{The base is functorial} (\S\ref{sec:base}).  On the centre both
+  axioms collapse to the unrelaxed ones, so $\Zc(A)\cong C(X_A,\RR)$ for a
+  compact Hausdorff $X_A$: every object carries a canonical classical base,
+  \emph{extracted} from the algebra rather than imposed on it.  The morphism law
+  --- contractive homomorphisms that do not increase the budget --- turns out to
+  force $f(\Zc(A))\subseteq\Zc(B)$ automatically
+  (Lemma~\ref{lem:centre-preserved}), so $A\mapsto X_A$ is a functor
+  $\PB\to\CompHaus\op$.  This is the precise sense in which the category is
+  ``fibred over classical geometry''.
+
+\item \textbf{The commutative part is coreflective}
+  (Theorem~\ref{thm:coreflection}).  The centre functor $A\mapsto\Zc(A)$ is
+  right adjoint to the inclusion $\CommPB\hookrightarrow\PB$, and
+  $\CommPB\simeq\CompHaus\op$.  Consequently every PB-algebra is a
+  $C(X_A,\RR)$-algebra and so the section algebra of an upper semicontinuous
+  field over its own base (\S\ref{sec:bundle}): PB-algebras are bundles of
+  pointless objects over compact Hausdorff spaces.
+
+\item \textbf{$C=\tfrac14$ is a phase transition}
+  (Theorem~\ref{thm:phase-transition}).  For $C<\tfrac14$ every object satisfies
+  $r(a)\ge(1-4C)\norm{a}$, hence is semisimple and contains no nonzero nilpotent
+  element; at $C=\tfrac14$ the examples $M_2(\RR)$ and $T_2(\RR)$ enter
+  simultaneously, and no choice of constant separates them
+  (Proposition~\ref{prop:no-constant-separates}).  The value $\tfrac14$ is thus
+  not a normalisation artefact but the location of the only interesting
+  threshold in the family.
+\end{itemize}
+
+Two corrections to the earlier notes are recorded where they arise.  The
+identification of the monomorphisms of $\PB$ with the budget-preserving
+embeddings is withdrawn: injective morphisms are already monic, and the
+budget-preserving embeddings are the correct notion of \emph{subobject}, not of
+monomorphism (Remark~\ref{rem:mono-correction}).  The claim that the failure of
+the inclusion $\Delta\hookrightarrow M_2(\RR)$ to be legal proves incompleteness
+was already retracted there; we go further and \emph{answer} the open question
+it left behind.  Theorem~\ref{thm:t2-cone} exhibits an explicit legal cone
+$T_2(\RR)\to M_2(\RR)$ with non-scalar diagonal image, so the scalars are not
+the equalizer of $\id$ and $\Ad_{\operatorname{diag}(1,-1)}$.  Whether
+\emph{some} object is remains open, and \S\ref{sec:categorical} reduces that
+question to the representability of an explicit functor.
+
+\subsection{Status discipline}
+
+Every substantive assertion carries one of four tags.  \statusproved\ means a
+complete proof is given or a precise citation is supplied.  \statusnum\ means
+the statement is a finite-dimensional inequality that has been checked by the
+optimisation code in \texttt{verify/}, to the tolerance reported in
+\S\ref{sec:status}, but not proved.  \statusconj\ and \statusopen\ mean what they
+say.  The ledger in \S\ref{sec:status} collects all of them in one table; it is
+the honest summary of where the theory stands, and it is intended to shrink in
+the \statusopen\ column over time.

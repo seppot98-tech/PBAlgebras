@@ -1,0 +1,78 @@
+\section{Preliminaries and conventions}
+\label{sec:prelim}
+
+\begin{convention}\label{conv:standing}
+Throughout, an \emph{algebra} means a unital real Banach algebra $A$ whose norm
+is submultiplicative with $\norm{1}=1$.  Homomorphisms are unital and
+$\RR$-linear.  We write $\Zc(A)$ for the centre, $\rad(A)$ for the Jacobson
+radical, $[a,z]=az-za$ and $\ad_a=[a,-]$.  We allow the \emph{degenerate
+algebra} $0$, in which $1=0$; see Convention~\ref{conv:degenerate}.
+\end{convention}
+
+\subsection{Complexification and spectrum}
+
+For a real algebra $A$ let $A_\CC=A\otimes_\RR\CC$ carry any of the usual
+equivalent norms, e.g.\
+$\norm{x+iy}=\sup_{\theta}\norm{x\cos\theta-y\sin\theta}$, which is
+submultiplicative and restricts to the given norm on $A$.  The \emph{spectrum}
+of $a\in A$ is
+\[
+  \spec(a)=\{\lambda\in\CC:\lambda1-a\ \text{is not invertible in}\ A_\CC\},
+\]
+a nonempty compact subset of $\CC$ stable under complex conjugation, and the
+spectral radius is $r(a)=\max\{\abs{\lambda}:\lambda\in\spec(a)\}$.  Beurling's
+formula $r(a)=\lim_n\norm{a^n}^{1/n}$ holds verbatim, since the norms on $A$ and
+$A_\CC$ are equivalent within a factor of $2$ and the limit is insensitive to
+that.  A \emph{character} of $A$ is a nonzero homomorphism $\chi:A\to\CC$ of
+real algebras with $\chi(1)=1$; every character is automatically contractive,
+and $\abs{\chi(a)}\le r(a)$.
+
+\begin{remark}
+Nothing forces a noncommutative $A$ to have any characters at all: $M_2(\RR)$
+has none, since a character would kill all commutators and
+$M_2(\RR)=\RR1\oplus[M_2(\RR),M_2(\RR)]$, while the resulting functional
+$a\mapsto\tfrac12\tr(a)$ is not multiplicative.  Statements below that quantify
+over characters are therefore vacuous on such algebras; this is a feature, not a
+gap.  The geometric content is carried by the centre instead (\S\ref{sec:base}).
+\end{remark}
+
+\subsection{Real Gelfand theory}
+
+We use the real-scalar Gelfand theory in the form developed by Kulkarni and
+Limaye \cite{KulkarniLimaye}.  For commutative $A$ the character space
+$\Omega(A)$ of $A_\CC$ is compact Hausdorff and carries the involution
+$\chi\mapsto\bar\chi$, $\bar\chi(a)=\overline{\chi(a)}$; the Gelfand transform
+\[
+  \Gamma:A\longrightarrow C(\Omega(A),\CC),\qquad \Gamma(a)(\chi)=\chi(a)
+\]
+has image inside the \emph{real function algebra} of conjugation-equivariant
+functions, $\norm{\Gamma(a)}_\infty=r(a)$, and $\ker\Gamma=\rad(A)$.  The
+involution is trivial --- so that the image consists of real-valued functions
+--- exactly when every character is real-valued.  We write $\CompHaus$ for the
+category of compact Hausdorff spaces and continuous maps.
+
+\begin{theorem}[Real Stone--Weierstrass]\label{thm:stone-weierstrass}
+A closed unital subalgebra of $C(X,\RR)$, $X$ compact Hausdorff, which separates
+the points of $X$ is all of $C(X,\RR)$.
+\end{theorem}
+
+\subsection{Two classical inputs}
+
+We shall use the following two results as black boxes; both are standard, and
+both are the reason the rigid core of \S\ref{sec:rigid} is as rigid as it is.
+
+\begin{theorem}[Hirschfeld--\.Zelazko \cite{HirschfeldZelazko}]
+\label{thm:hz}
+Let $B$ be a complex Banach algebra whose spectral radius is submultiplicative,
+$r(xy)\le r(x)r(y)$ for all $x,y$.  Then $B/\rad(B)$ is commutative.
+\end{theorem}
+
+\begin{theorem}[Stampfli \cite{Stampfli}]\label{thm:stampfli}
+For $a\in B(H)$, $H$ a complex Hilbert space,
+$\norm{\ad_a}=2\dist(a,\CC1)$.
+\end{theorem}
+
+Theorem~\ref{thm:stampfli} is stated over $\CC$; the real analogue we use ---
+$\norm{\ad_a}=2\dist(a,\RR1)$ for $a\in M_n(\RR)$ acting on $\RR^n$ --- is
+recorded as Proposition~\ref{prop:real-stampfli} and is, in the present
+treatment, verified numerically rather than proved.
