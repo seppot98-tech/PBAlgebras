@@ -1,6 +1,6 @@
 # Open problems
 
-Ordered by leverage. Problems 1–3 would change the shape of the theory; the
+Ordered by leverage. Problems 0–3 would change the shape of the theory; the
 rest firm up statements already in use. Section references are to `paper/`.
 
 ---

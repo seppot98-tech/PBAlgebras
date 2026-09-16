@@ -4,7 +4,7 @@
 
 | Working notes | Here | Why |
 |---|---|---|
-| `W`-algebra, `W`, `W_q`, `W^C_q` | **PB-algebra**, `PB`, `PB_D`, `PB^C_D` | "W-algebra" collides with W\*-algebra (von Neumann algebra); the whole point is that there is no involution here, so the collision is actively misleading. "Perfectly bounded" is the author's coinage: the norm is perfectly determined by the spectral radius on the centre, and the deviation off it is bounded by the budget. |
+| `W`-algebra, `W`, `W_q`, `W^C_q` | **PB-algebra**, `PB`, `PB_D`, `PB^C_D` | "W-algebra" collides with W\*-algebra (von Neumann algebra); the whole point is that there is no involution here, so the collision is actively misleading. "Perfectly bounded" is the author's name for the objects and is adopted as given. A reading consistent with the axioms, offered as a gloss rather than a definition: the norm is *perfectly* pinned to the spectral radius where the budget vanishes, and *boundedly* away from it elsewhere. |
 | `(C2)` | **(SR)**, spectral reality | "Condition 2" names nothing. On a commutative algebra the condition says exactly that no character takes a non-real value. |
 | `W1`, `W2` | **(PB1)**, **(PB2)** | Consistency with the object name. |
 | `W1₀` | **`PB⁰`** | The unrelaxed (zero-budget) case. |
