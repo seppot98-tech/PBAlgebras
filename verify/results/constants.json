@@ -1,0 +1,98 @@
+[
+  {
+    "algebra": "R^2",
+    "dim": 2,
+    "kappa": 0.0,
+    "lambda": 0.0,
+    "constant": 0.0,
+    "is_pb": true,
+    "seconds": 0.5220820903778076,
+    "witness_kappa": null,
+    "witness_lambda": null
+  },
+  {
+    "algebra": "C",
+    "dim": 2,
+    "kappa": 0.0,
+    "lambda": Infinity,
+    "constant": Infinity,
+    "is_pb": false,
+    "seconds": 0.4221036434173584,
+    "witness_kappa": null,
+    "witness_lambda": [
+      [
+        0.639424,
+        -0.768855
+      ],
+      [
+        0.768855,
+        0.639424
+      ]
+    ]
+  },
+  {
+    "algebra": "H",
+    "dim": 4,
+    "kappa": 0.0,
+    "lambda": 0.2500000000000004,
+    "constant": 0.2500000000000004,
+    "is_pb": true,
+    "seconds": 8.300284385681152,
+    "witness_kappa": null,
+    "witness_lambda": [
+      [
+        -0.000119,
+        0.222075,
+        0.005223,
+        0.975016
+      ],
+      [
+        -0.222075,
+        -0.000119,
+        0.975016,
+        -0.005223
+      ],
+      [
+        -0.005223,
+        -0.975016,
+        -0.000119,
+        0.222075
+      ],
+      [
+        -0.975016,
+        0.005223,
+        -0.222075,
+        -0.000119
+      ]
+    ]
+  },
+  {
+    "algebra": "M2(R)",
+    "dim": 4,
+    "kappa": 0.2500000000000002,
+    "lambda": 0.2499999999999991,
+    "constant": 0.2500000000000002,
+    "is_pb": true,
+    "seconds": 22.48830795288086,
+    "witness_kappa": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        -0.0,
+        -0.0
+      ]
+    ],
+    "witness_lambda": [
+      [
+        -0.000324,
+        1.0
+      ],
+      [
+        -1.0,
+        -0.000324
+      ]
+    ]
+  }
+]

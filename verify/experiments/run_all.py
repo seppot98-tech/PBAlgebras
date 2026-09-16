@@ -57,12 +57,26 @@ def fmt(x: float) -> str:
     return r"$\infty$" if not np.isfinite(x) else f"{x:.4f}"
 
 
-def run(names: list[str], tries: int, seed: int) -> list[dict]:
+def budget(tries: int, alg: Algebra) -> int:
+    """Scale the number of restarts down with the dimension.
+
+    Every ratio evaluation maximises a gauge, so cost grows sharply with
+    dim(A); without this a single six-dimensional algebra dominates the run.
+    """
+    if alg.dim <= 4:
+        return tries
+    if alg.dim <= 6:
+        return max(4, tries // 3)
+    return max(3, tries // 6)
+
+
+def run(names: list[str], tries: int, seed: int, on_row=None) -> list[dict]:
     rows = []
     for name in names:
         alg: Algebra = CATALOGUE[name]()
         t0 = time.time()
-        res = critical_constants(alg, gauge="D1", tries=tries, seed=seed)
+        res = critical_constants(alg, gauge="D1", tries=budget(tries, alg),
+                                 seed=seed)
         elapsed = time.time() - t0
         print(f"  {res.summary()}   [{elapsed:.1f}s]", flush=True)
         rows.append({
@@ -78,6 +92,8 @@ def run(names: list[str], tries: int, seed: int) -> list[dict]:
             "witness_lambda": (None if res.lam_witness is None
                                else np.round(res.lam_witness, 6).tolist()),
         })
+        if on_row is not None:
+            on_row(rows)  # checkpoint, so a long run survives interruption
     return rows
 
 
@@ -122,12 +138,15 @@ def main() -> None:
         names, tries = DEFAULT, 20
 
     print(f"critical constants, gauge D1, tries={tries}")
-    rows = run(names, tries, args.seed)
-
     RESULTS.mkdir(parents=True, exist_ok=True)
     GENERATED.mkdir(parents=True, exist_ok=True)
-    (RESULTS / "constants.json").write_text(json.dumps(rows, indent=2))
-    write_latex(rows, GENERATED / "constants.tex")
+
+    def checkpoint(rows: list[dict]) -> None:
+        (RESULTS / "constants.json").write_text(json.dumps(rows, indent=2))
+        write_latex(rows, GENERATED / "constants.tex")
+
+    rows = run(names, tries, args.seed, on_row=checkpoint)
+    checkpoint(rows)
     print(f"\nwrote {RESULTS/'constants.json'}")
     print(f"wrote {GENERATED/'constants.tex'}")
 

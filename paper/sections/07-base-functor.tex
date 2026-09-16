@@ -145,32 +145,59 @@ of $A$, since $I_x\cdot A$ is central-by-$A$ --- and set $A_x=A/J_x$, with
 quotient map $\pi_x$.  We call $A_x$ the \emph{fibre of $A$ over $x$}.
 \end{definition}
 
+\begin{definition}[Local norm]\label{def:local-norm}
+For $a\in A$ and $x\in X_A$ put
+\[
+  N_x(a)=\inf\bigl\{\norm{f\cdot a}\;:\;f\in C(X_A,\RR),\ 0\le f\le1,\
+  f\equiv1\ \text{on a neighbourhood of }x\bigr\}.
+\]
+\end{definition}
+
 \begin{proposition}\label{prop:usc-field}
-For every $a\in A$ the function $x\mapsto\norm{\pi_x(a)}$ is upper
-semicontinuous on $X_A$ and bounded by $\norm{a}$, and each $\pi_x$ is a
-PB-morphism onto its image.  Moreover $\Zc(A_x)$ is a quotient of
-$C(X_A,\RR)$ by an ideal containing $I_x$, so the base of each fibre is a
-single point provided $A_x\ne0$ and the quotient map is surjective on centres.
+For every $a\in A$:
+\begin{enumerate}
+\item[(a)] $\norm{\pi_x(a)}\le N_x(a)\le\norm{a}$;
+\item[(b)] $x\mapsto N_x(a)$ is upper semicontinuous on $X_A$;
+\item[(c)] each $\pi_x$ is contractive and budget-contracting, and
+  $\pi_x(f\cdot1)=f(x)1$ for $f\in C(X_A,\RR)$.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Upper semicontinuity of $x\mapsto\norm{a+J_x}$ for a $C(X)$-module is standard:
-$\norm{\pi_x(a)}=\inf\{\norm{a-f\cdot a}:f\in C(X_A,\RR),\ f(x)=0,\ 0\le f\le1\}$
-up to the usual approximation, an infimum of continuous functions of $x$.
-Boundedness and the PB-morphism property are
-Proposition~\ref{prop:category}.  The statement about centres follows from
-$\pi_x(f\cdot1)=f(x)1$ for $f\in C(X_A,\RR)$.
+(a) If $f\equiv1$ near $x$ then $(1-f)(x)=0$, so $(1-f)\cdot a\in I_x\cdot A\subseteq J_x$
+and hence $\pi_x(a)=\pi_x(f\cdot a)$, giving
+$\norm{\pi_x(a)}\le\norm{f\cdot a}$; take the infimum.  The upper bound is
+$\norm{f\cdot a}\le\norm{f}_\infty\norm{a}\le\norm{a}$.
+
+(b) Given $\varepsilon>0$ choose $f$ admissible for $x$ with
+$\norm{f\cdot a}<N_x(a)+\varepsilon$, say $f\equiv1$ on the open set $U\ni x$.
+Every $x'\in U$ has $f\equiv1$ on the same neighbourhood $U$ of $x'$, so $f$ is
+admissible for $x'$ and $N_{x'}(a)\le\norm{f\cdot a}<N_x(a)+\varepsilon$.
+
+(c) Proposition~\ref{prop:category}, and $f\cdot1-f(x)1\in I_x\cdot A$.
 \end{proof}
 
+\begin{remark}[What is missing, precisely]\label{rem:local-norm-gap}
+For $C^*$-algebras one has $\norm{\pi_x(a)}=N_x(a)$, and the proof uses an
+approximate identity to show that every element of $J_x$ is approximated by
+elements $(1-f)\cdot a$.  We do not have that here, and we do not assume it: the
+inequality in (a) is all that is claimed.  Consequently
+Proposition~\ref{prop:usc-field}(b) gives upper semicontinuity of the
+\emph{local} norm $N_x$, and upper semicontinuity of the genuine fibre norm
+$x\mapsto\norm{\pi_x(a)}$ follows only once the two agree.
+\end{remark}
+
 \begin{question}[Faithfulness of the bundle]\label{q:faithful-bundle}
-Is $\norm{a}=\sup_{x\in X_A}\norm{\pi_x(a)}$ for every $a\in A$?
+Is $\norm{a}=\sup_{x\in X_A}\norm{\pi_x(a)}$ for every $a\in A$, and is
+$N_x=\norm{\pi_x(\cdot)}$?
 \end{question}
 
 For $C^*$-algebras the corresponding statement is a theorem
-(Dauns--Hofmann), and the usual proof needs a partition-of-unity estimate
-$\norm{\sum_if_i\cdot a_i}\le\max_i\norm{a_i}$ for partitions of unity
-$\{f_i\}$, which holds automatically there but is an extra hypothesis for a
-general Banach module.  A positive answer would give the slogan of this section
+(Dauns--Hofmann \cite{DaunsHofmann}), and the usual proof needs a
+partition-of-unity estimate $\norm{\sum_if_i\cdot a_i}\le\max_i\norm{a_i}$ for
+partitions of unity $\{f_i\}$, which holds automatically there but is an extra
+hypothesis for a general Banach module --- as is the identification of the
+fibre norm with the local norm (Remark~\ref{rem:local-norm-gap}).  A positive answer would give the slogan of this section
 its literal meaning:
 
 \begin{quote}
