@@ -8,8 +8,8 @@ Convention~\ref{conv:degenerate}.
 
 \begin{proposition}\label{prop:terminal}
 $\RR$ is initial and the degenerate algebra $0$ is terminal.  Without
-Convention~\ref{conv:degenerate} there is no terminal object, and hence no
-limits, for reasons unrelated to the subject.
+Convention~\ref{conv:degenerate}, and for $C\ge\tfrac14$, there is no terminal
+object and hence no limits --- for reasons unrelated to the subject.
 \end{proposition}
 
 \begin{proof}
@@ -17,7 +17,8 @@ For initiality, the unit $\RR\to A$, $\lambda\mapsto\lambda1$, is the unique
 unital homomorphism; it is isometric and both gauges vanish on its image.  For
 terminality, $A\to0$ is unique, contractive and budget-contracting.
 
-Without the degenerate object, suppose $T$ were terminal and let
+Without the degenerate object, suppose $T$ were terminal.  Since
+$C\ge\tfrac14$, $M_2(\RR)$ is an object (Example~\ref{ex:M2}); let
 $\varphi:M_2(\RR)\to T$ be the unique morphism.  As $M_2(\RR)$ is simple and
 $\varphi$ is unital, $\varphi$ is injective.  For $v\in O(2)$ the automorphism
 $\Ad_v$ of $M_2(\RR)$ is isometric, hence gauge-preserving by
@@ -25,7 +26,10 @@ Lemma~\ref{lem:isometric}, hence a PB-morphism; so $\varphi\circ\Ad_v$ is again
 a morphism $M_2(\RR)\to T$, and uniqueness gives
 $\varphi\circ\Ad_v=\varphi$.  Injectivity of $\varphi$ then forces
 $\Ad_v=\id$ for every $v\in O(2)$, which is false.  Hence there is no terminal
-object, and since the terminal object is the empty product, no limits.
+object, and since the terminal object is the empty product, no limits.  (The
+same argument runs with $\HH$ and its inner automorphisms in place of
+$M_2(\RR)$; some noncommutative object is needed, which is why the statement is
+restricted to $C\ge\tfrac14$.)
 \end{proof}
 
 \subsection{Products}

@@ -35,7 +35,9 @@ GENERATED = ROOT / "paper" / "generated"
 #: because every ratio evaluation maximises a gauge.
 QUICK = ["R^2", "C", "H", "M2(R)", "T2(R)", "R[eps]/(eps^2)"]
 DEFAULT = QUICK + ["R^3", "M3(R)", "T3(R)", "H(+)R^2"]
-FULL = DEFAULT + ["M2(R)(+)M2(R)"]
+#: The block-triangular algebras are the evidence base for the semisimplicity
+#: conjecture, so the full run includes them.
+FULL = DEFAULT + ["M2(R)(+)M2(R)", "P(1,2)", "P(2,1)"]
 
 LATEX_NAMES = {
     "R": r"$\RR$",
@@ -50,6 +52,8 @@ LATEX_NAMES = {
     "R[eps]/(eps^2)": r"$\RR[\varepsilon]/(\varepsilon^2)$",
     "M2(R)(+)M2(R)": r"$M_2(\RR)\times M_2(\RR)$",
     "H(+)R^2": r"$\HH\times\RR^2$",
+    "P(1,2)": r"$P_{1,2}(\RR)$",
+    "P(2,1)": r"$P_{2,1}(\RR)$",
 }
 
 
@@ -127,23 +131,50 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--quick", action="store_true", help="CI-sized run")
     ap.add_argument("--full", action="store_true", help="everything, slowly")
+    ap.add_argument("--only", nargs="+", metavar="NAME",
+                    help="run just these algebras and merge into existing results")
+    ap.add_argument("--tries", type=int, default=None, help="override the restart budget")
     ap.add_argument("--seed", type=int, default=0)
     args = ap.parse_args()
 
-    if args.quick:
+    if args.only:
+        unknown = [n for n in args.only if n not in CATALOGUE]
+        if unknown:
+            ap.error(f"unknown algebra(s): {', '.join(unknown)}; "
+                     f"available: {', '.join(CATALOGUE)}")
+        names, tries = args.only, 20
+    elif args.quick:
         names, tries = QUICK, 8
     elif args.full:
         names, tries = FULL, 40
     else:
         names, tries = DEFAULT, 20
+    if args.tries is not None:
+        tries = args.tries
 
     print(f"critical constants, gauge D1, tries={tries}")
     RESULTS.mkdir(parents=True, exist_ok=True)
     GENERATED.mkdir(parents=True, exist_ok=True)
+    path = RESULTS / "constants.json"
+
+    #: Existing rows to merge with, so --only tops up a previous run instead of
+    #: discarding it.  Ordering follows the catalogue, not the order of runs.
+    previous: list[dict] = []
+    if args.only and path.exists():
+        previous = [r for r in json.loads(path.read_text())
+                    if r["algebra"] not in set(names)]
+
+    order = list(CATALOGUE)
+
+    def merge(rows: list[dict]) -> list[dict]:
+        merged = previous + rows
+        return sorted(merged, key=lambda r: order.index(r["algebra"])
+                      if r["algebra"] in order else len(order))
 
     def checkpoint(rows: list[dict]) -> None:
-        (RESULTS / "constants.json").write_text(json.dumps(rows, indent=2))
-        write_latex(rows, GENERATED / "constants.tex")
+        out = merge(rows)
+        path.write_text(json.dumps(out, indent=2))
+        write_latex(out, GENERATED / "constants.tex")
 
     rows = run(names, tries, args.seed, on_row=checkpoint)
     checkpoint(rows)

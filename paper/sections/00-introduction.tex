@@ -78,12 +78,36 @@ errors.
 \item \textbf{$C=\tfrac14$ is a phase transition}
   (Theorem~\ref{thm:phase-transition}).  For $C<\tfrac14$ every object satisfies
   $r(a)\ge(1-4C)\norm{a}$, hence is semisimple and contains no nonzero nilpotent
-  element; at $C=\tfrac14$ the examples $M_2(\RR)$ and $T_2(\RR)$ enter
-  simultaneously, and no choice of constant separates them
-  (Proposition~\ref{prop:no-constant-separates}).  The value $\tfrac14$ is thus
-  not a normalisation artefact but the location of the only interesting
-  threshold in the family.
+  element; at $C=\tfrac14$ the pointless objects $M_2(\RR)$ and $\HH$ arrive.
+  The value $\tfrac14$ is thus not a normalisation artefact but a genuine
+  threshold.
 \end{itemize}
+
+There is a second threshold, and finding it corrected the earlier notes.  Those
+notes assert that no constant separates $T_2(\RR)$ from $M_2(\RR)$: both were
+said to have critical ratio $\tfrac14$, attained at the shared element $E_{12}$.
+That is false.  The extremiser of $T_2(\RR)$ is the traceless element
+$\begin{psmallmatrix}c&1-c^2\\0&-c\end{psmallmatrix}$, and
+Proposition~\ref{prop:T2-constant} shows
+\[
+  \kap_{\gauge_1}(T_2(\RR))\;\ge\;\kap^*
+  \;=\;\frac{4y(1-y)}{(1+y)^4}\bigg|_{y=\frac{5-\sqrt{17}}{4}}
+  \;=\;0.3098421747\ldots\;>\;\tfrac14 ,
+\]
+so every constant in $[\tfrac14,\kap^*)$ admits $M_2(\RR)$ and excludes
+$T_2(\RR)$.  The proof is a rank-one dual certificate for the nuclear norm and
+is entirely by hand; the number was found by the verification package and then
+turned into a theorem.
+
+The consequence is structural.  The earlier notes present the choice of gauge as
+a forced trade: the norm gauge $\gauge_1$ keeps the base functorial but cannot
+exclude non-central radical, while the spectral gauge $\gauge_\infty$ excludes it
+but vanishes on whole directions and so cannot be closed under quotients.  At
+$C=\tfrac14$ the trade is not forced in the one case we can compute, which
+raises Conjecture~\ref{conj:semisimple}: \emph{every $\PB^{1/4}$-algebra is
+semisimple}.  If that holds, then at exactly one value of the constant the norm
+gauge excludes the radical --- what the $C^*$-identity achieves by means of an
+involution --- while keeping the functorial classical base.
 
 Two corrections to the earlier notes are recorded where they arise.  The
 identification of the monomorphisms of $\PB$ with the budget-preserving

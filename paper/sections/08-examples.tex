@@ -36,6 +36,10 @@ infinitesimal ones, and it refuses them for the same reason --- an unfunded
 defect.
 \end{example}
 
+Table~\ref{tab:constants} collects the critical constants of these and other
+finite-dimensional examples, as computed by the verification package; the
+conventions and caveats attaching to those numbers are in \S\ref{sec:status}.
+
 \input{generated/constants}
 
 \subsection{The two obstructions}
@@ -53,12 +57,15 @@ $C^*$-algebra --- $C^*$-algebras are semisimple.  Its radical is
 $\gauge_1(E_{12})=4>0$ and the square defect of $E_{12}$ is funded.
 \end{proposition}
 
-Whether $T_2(\RR)$ is an object of $\PB^{1/4}_{\gauge_1}$ --- i.e.\ whether its
-funded defect stays within the same constant that $M_2(\RR)$ needs --- is a
-quantitative question, settled numerically in the table above and discussed in
-\S\ref{sec:status}.  It matters, because $T_2(\RR)$ is the one elementary
-finite-dimensional witness for $\PB\not\subseteq\Cstar$, and because it is the
-cone that answers Question~\ref{q:legal-cone}.
+Whether $T_2(\RR)$ is an \emph{object} of $\PB^{1/4}_{\gauge_1}$ --- i.e.\
+whether its funded defect stays within the same constant that $M_2(\RR)$ needs
+--- is a quantitative question, and the answer is no:
+Proposition~\ref{prop:T2-constant} below shows
+$\kap_{\gauge_1}(T_2(\RR))\ge\kap^*>\tfrac14$.  It matters on both counts for
+which $T_2(\RR)$ is used: it is the one elementary finite-dimensional witness
+for $\PB\not\subseteq\Cstar$, and it is the cone of
+Theorem~\ref{thm:t2-cone}.  Both statements therefore hold only above
+$\kap^*$.
 
 \subsubsection*{Excess on the $C^*$ side: chirality}
 

@@ -81,6 +81,34 @@ def diagonal(n: int) -> Algebra:
     return Algebra(f"R^{n}", basis, latex=rf"\RR^{{{n}}}")
 
 
+def block_upper_triangular(sizes: Sequence[int]) -> Algebra:
+    """Block upper-triangular matrices for the given diagonal block sizes.
+
+    ``block_upper_triangular([1, 1])`` is ``T_2(R)``; ``[1, 2]`` is the
+    parabolic subalgebra of ``M_3(R)`` whose radical is non-central *and* whose
+    diagonal carries a genuine ``M_2(R)`` block.  These are the sharpest test
+    cases for the conjecture that every PB-algebra at ``C = 1/4`` is semisimple:
+    the matrix block supplies commutators that the radical of ``T_n(R)`` lacks,
+    so if any radical-carrying algebra can pay its way at ``1/4``, one of these
+    is a candidate.
+    """
+    n = sum(sizes)
+    starts, off = [], 0
+    for s in sizes:
+        starts.append(off)
+        off += s
+    basis = []
+    for bi, si in enumerate(sizes):
+        for bj, sj in enumerate(sizes):
+            if bj < bi:
+                continue  # strictly below the block diagonal
+            for i in range(starts[bi], starts[bi] + si):
+                for j in range(starts[bj], starts[bj] + sj):
+                    basis.append(_unit(n, i, j))
+    name = "P(" + ",".join(str(s) for s in sizes) + ")"
+    return Algebra(name, tuple(basis), latex=rf"P_{{{','.join(map(str, sizes))}}}(\RR)")
+
+
 def quaternions() -> Algebra:
     """``H``, via the left regular representation on ``R^4``."""
     one = np.eye(4)
@@ -141,4 +169,6 @@ CATALOGUE: dict[str, Callable[[], Algebra]] = {
     "R[eps]/(eps^2)": dual_numbers,
     "M2(R)(+)M2(R)": lambda: direct_sum(full_matrix(2), full_matrix(2)),
     "H(+)R^2": lambda: direct_sum(quaternions(), diagonal(2)),
+    "P(1,2)": lambda: block_upper_triangular([1, 2]),
+    "P(2,1)": lambda: block_upper_triangular([2, 1]),
 }

@@ -14,6 +14,7 @@ optimisation, and to catch false conjectures early.
 
 from .algebras import (
     Algebra,
+    block_upper_triangular,
     full_matrix,
     upper_triangular,
     quaternions,
@@ -29,6 +30,7 @@ from .search import critical_constants
 
 __all__ = [
     "Algebra",
+    "block_upper_triangular",
     "full_matrix",
     "upper_triangular",
     "quaternions",
